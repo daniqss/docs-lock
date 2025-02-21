@@ -1,10 +1,13 @@
 import "./App.css";
+import { useState } from "react";
 import Header from "./components/Header";
 import SkillBox from "./components/SkillBox";
 import Footer from "./components/Footer";
+import SkillPage from "./pages/SkillPage";
 
 function App() {
-  const skills = [
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [skills, setSkills] = useState([
     "React",
     "JavaScript",
     "TypeScript",
@@ -15,18 +18,37 @@ function App() {
     "Redux",
     "Next.js",
     "GraphQL",
-  ];
+  ]);
+  const [isSkillSelected, setIsSkillSelected] = useState(false);
+  const [selectedSkill, setSelectedSkill] = useState("");
+  const user = {
+    name: "paula",
+    surname: "carril gontan",
+    github: "paula.carril@github.com",
+  };
 
   return (
     <>
-      <Header>docs.lock</Header>
-      {/* <SkillBox /> */}
-      <div className="p-4 grid grid-cols-4 gap-4">
-        {skills.map((skill, index) => (
-          <SkillBox key={index} name={skill} />
-        ))}
-      </div>
-      <Footer />
+      {!isSkillSelected ? (
+        <main>
+          <Header user={user}>docs.lock</Header>
+          <div className="p-4 grid grid-cols-4 gap-4">
+            {skills.map((skill, index) => (
+              <SkillBox
+                key={index}
+                name={skill}
+                handleClick={() => {
+                  setSelectedSkill(skill);
+                  setIsSkillSelected(!isSkillSelected);
+                }}
+              />
+            ))}
+          </div>
+          <Footer />
+        </main>
+      ) : (
+        <SkillPage skill={selectedSkill} />
+      )}
     </>
   );
 }

@@ -1,22 +1,62 @@
-import { ReactNode } from "react";
+import { useState, useRef, useEffect, ReactNode } from "react";
 import SearchBar from "./SearchBar";
 import ProfileIcon from "./icons/ProfileIcon";
+import { UserType } from "../types/user";
 
 type HeaderProps = {
   children: ReactNode;
+  user: UserType;
 };
 
-function Header({ children }: HeaderProps) {
+function Header({ children, user }: HeaderProps) {
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
+
+  // Cerrar el dropdown si se hace clic fuera
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setDropdownOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <header className="flex flex-row justify-between items-center border-b lg:mb-16 lg:px-2 mb-8">
+    <header className="flex flex-row justify-between items-center border-b lg:mb-16 lg:px-2 mb-8 relative">
       <section className="flex flex-row space-x-2 items-center lg:my-3 my-1">
         <h1 className="lg:text-4xl text-2xl font-bold text-neutral-300">
           {children}
         </h1>
       </section>
       <SearchBar />
-      <section className="flex flex-row space-x-4">
-        <ProfileIcon className="w-8 h-8" />
+      <section className="flex flex-row space-x-4 relative">
+        {/* Icono del perfil con evento de clic */}
+        <button
+          onClick={() => setDropdownOpen(!isDropdownOpen)}
+          className="relative"
+        >
+          <ProfileIcon className="w-8 h-8 cursor-pointer" />
+        </button>
+
+        {/* Dropdown */}
+        {isDropdownOpen && (
+          <div
+            ref={dropdownRef}
+            className="absolute right-0 top-12 bg-white shadow-lg rounded-md p-3 w-56 border"
+          >
+            <p className="text-gray-900 font-semibold">
+              {user.name} {user.surname}
+            </p>
+            <p className="text-gray-600 text-sm">{user.github}</p>
+          </div>
+        )}
       </section>
     </header>
   );

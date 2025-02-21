@@ -1,5 +1,6 @@
 interface SkillBoxProps {
   name: string;
+  handleClick: () => void;
 }
 
 export default function SkillBox({ name }: SkillBoxProps) {
