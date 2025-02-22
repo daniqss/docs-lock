@@ -6,8 +6,8 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: rgba(255, 255, 255, 1);
+  background-color: var(--background-color);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -15,13 +15,88 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+/* styles.css */
+:root {
+  --background-color: #fcdad4; /* Gris oscuro */
+  --secondary-color: #ffffff; /* Verde */
+  --primary-color: #f6f6f6; /* Azul */
+  --foreground-color: #f2f2f2; /* Blanco */
+  
+
+  --button-color: #eb2026; /* Azul */
+  --label-color: #ffffff; /* Texto oscuro */
+  --input-color: #ffffff; /* Blanco para inputs */
+  --text-color:  #222222; /* Texto oscuro */
+}
+
+/* styles.css */
+@layer utilities {
+  /* Colores de fondo */
+  .bg-primary {
+    background-color: var(--primary-color);
+  }
+
+  .bg-secondary {
+    background-color: var(--secondary-color);
+  }
+
+  .bg-background {
+    background-color: var(--background-color);
+  }
+
+  .bg-foreground {
+    background-color: var(--foreground-color);
+  }
+
+  /* Colores de texto */
+  .text-primary {
+    color: var(--primary-color);
+  }
+
+  .text-secondary {
+    color: var(--secondary-color);
+  }
+
+  .text-text {
+    color: var(--text-color);
+  }
+
+  .text-label {
+    color: var(--label-color);
+  }
+
+  /* Colores de botones */
+  .bg-button {
+    background-color: var(--button-color);
+  }
+
+  .bg-button:hover {
+    background-color: var(--primary-color); /* Para un hover de ejemplo */
+  }
+
+  /* Colores de inputs */
+  .bg-input {
+    background-color: var(--input-color);
+  }
+}
+
+
 a {
   font-weight: 500;
-  color: #646cff;
+  color: black;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #eb2026;
+}
+
+.githubtag {
+  color: blue;
+}
+
+.githubtag:hover {
+  color: black;
 }
 
 body {
@@ -44,27 +119,14 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--button-color);
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #eb2026;
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }

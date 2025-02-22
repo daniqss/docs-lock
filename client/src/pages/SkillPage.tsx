@@ -24,8 +24,8 @@ function SkillPage() {
   return (
     <>
       <Header />
-      <main className="mt-8 mb-12 flex-1">
-      <h1 className="w-full text-3xl font-bold text-center mt-0 mb-8 bg-gray-200 py-4 rounded-lg">
+      <main className="mt-20 mb-12 mx-4 flex-1">
+      <h1 className="w-full text-3xl font-bold text-center mt-0 mb-8 bg-white text-red-500 py-4 rounded-lg">
         {skill}
       </h1>
 
@@ -33,7 +33,7 @@ function SkillPage() {
         {/* main container */}
         <section className="flex flex-1 gap-4">
           {/* left column */}
-          <section className="w-1/3 bg-gray-100 p-4 rounded-lg items-center">
+          <section className="w-1/3 bg-white p-4 rounded-lg items-center">
             <SectionList
               sectionList={sections}
               handleClick={(section) => {
@@ -43,7 +43,7 @@ function SkillPage() {
           </section>
 
           {/* right column */}
-          <section className="w-2/3 bg-gray-50 p-4 rounded-lg items-center">
+          <section className="w-2/3 bg-secondary p-4 rounded-lg items-center">
             <SectionNotes selectedSection={selectedSection} />
           </section>
         </section>

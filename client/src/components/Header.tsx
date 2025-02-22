@@ -23,43 +23,33 @@ function Header() {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-
   return (
-    <header className="flex flex-row justify-between items-center border-b lg:mt-4 lg:px-2 relative">
-      <section className="flex flex-row space-x-2 items-center lg:my-3 my-1">
+    <header className="px-22 flex flex-row justify-between items-center w-full h-22 fixed top-0 left-0 border-b shadow-md bg-white ">
+      {/* Logo y título */}
+      <section className="flex flex-row space-x-2 items-center">
         <Link to="/">
-          <h1 className="lg:text-4xl text-2xl font-bold text-neutral-300">
+          <h1 className="text-2xl lg:text-4xl font-bold text-gray-900">
             docs.lock
           </h1>
         </Link>
       </section>
+  
+      {/* Sección del perfil */}
       <section className="flex flex-row space-x-4 relative">
-        {/* Icono del perfil con evento de clic */}
-        <button
-          onClick={() => setDropdownOpen(!isDropdownOpen)}
-          className="relative"
-        >
+        <button onClick={() => setDropdownOpen(!isDropdownOpen)} className="relative">
           <ProfileIcon className="w-8 h-8 cursor-pointer" />
         </button>
-
+  
         {/* Dropdown */}
         {isDropdownOpen && (
-         <div
-         ref={dropdownRef}
-         className="absolute right-0 top-12 bg-white shadow-lg rounded-md p-3 w-56 border text-left"
-       >
-         <p className="text-gray-900 font-semibold">
-           {"name: "} {user.name} {user.surname}
-         </p>
-         <p className="text-gray-600 text-sm">
-           {"github: "} {user.github}
-         </p>
-       </div>
-       
+          <div ref={dropdownRef} className="absolute right-0 top-12 shadow-lg rounded-md p-3 w-56 border bg-white">
+            <p className="font-semibold text-gray-900">{"name: "} {user.name} {user.surname}</p>
+            <p className="text-sm text-gray-700">{"github: "} {user.github}</p>
+          </div>
         )}
       </section>
     </header>
-  );
+  );  
 }
 
 export default Header;

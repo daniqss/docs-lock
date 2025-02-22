@@ -5,7 +5,7 @@ interface SectionNotesProps {
 const SectionNotes: React.FC<SectionNotesProps> = ({ selectedSection }) => {
   return (
     <>
-      <h2 className="text-lg font-bold mb-4">
+      <h2 className="text-lg font-bold mb-4 text-black">
         {selectedSection
           ? `Notas de ${selectedSection.name}`
           : "Selecciona una sección"}
@@ -13,7 +13,7 @@ const SectionNotes: React.FC<SectionNotesProps> = ({ selectedSection }) => {
       <div className="overflow-auto h-[85vh] space-y-2">
         {selectedSection ? (
           selectedSection.notes.map((note, index) => (
-            <div key={index} className="p-3 bg-gray-200 rounded">
+            <div key={index} className="p-3 bg-primary rounded text-black">
               {note}
             </div>
           ))

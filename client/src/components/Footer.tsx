@@ -2,7 +2,7 @@ import GithubIcon from "./icons/GithubIcon";
 
 export default function Footer() {
   return (
-    <footer className="flex justify-between items-center px-6 py-4 border-t">
+    <footer className="flex justify-between items-center px-6 py-4 border-t bg-footer">
   
       <p className="text-sm text-gray-600">Made in A Coruña (Spain) under MIT license</p>
   
@@ -13,11 +13,11 @@ export default function Footer() {
         <span>Daniel Queijo Seoane</span>
       </div>
   
-      <a
+      <a 
         href="https://github.com/daniqss/docs-lock"
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center space-x-2 text-blue-600 hover:underline"
+        className="flex items-center space-x-2 text-blue-600 githubtag"
       >
         <GithubIcon className="w-5 h-5" />
         <span>Ver el repositorio en GitHub</span>
