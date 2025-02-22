@@ -24,7 +24,7 @@ function SkillPage() {
   return (
     <>
       <Header />
-      <main className="mt-8 mb-12">
+      <main className="mt-8 mb-12 flex-1">
       <h1 className="w-full text-3xl font-bold text-center mt-0 mb-8 bg-gray-200 py-4 rounded-lg">
         {skill}
       </h1>
