@@ -21,17 +21,12 @@ function App() {
   ]);
   const [isSkillSelected, setIsSkillSelected] = useState(false);
   const [selectedSkill, setSelectedSkill] = useState("");
-  const user = {
-    name: "paula",
-    surname: "carril gontan",
-    github: "paula.carril@github.com",
-  };
 
   return (
     <>
       {!isSkillSelected ? (
         <main>
-          <Header user={user}>docs.lock</Header>
+          <Header />
           <div className="p-4 grid grid-cols-4 gap-4">
             {skills.map((skill, index) => (
               <SkillBox

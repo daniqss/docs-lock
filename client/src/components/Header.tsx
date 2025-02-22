@@ -1,16 +1,11 @@
-import { useState, useRef, useEffect, ReactNode } from "react";
-import SearchBar from "./SearchBar";
+import { useState, useRef, useEffect, useContext } from "react";
 import ProfileIcon from "./icons/ProfileIcon";
-import { UserType } from "../types/user";
+import { SessionContext, SessionContextType } from "../context/Session";
 
-type HeaderProps = {
-  children: ReactNode;
-  user: UserType;
-};
-
-function Header({ children, user }: HeaderProps) {
+function Header() {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
+  const { user } = useContext(SessionContext) as SessionContextType;
 
   // Cerrar el dropdown si se hace clic fuera
   useEffect(() => {
@@ -31,11 +26,12 @@ function Header({ children, user }: HeaderProps) {
   return (
     <header className="flex flex-row justify-between items-center border-b lg:mb-16 lg:px-2 mb-8 relative">
       <section className="flex flex-row space-x-2 items-center lg:my-3 my-1">
-        <h1 className="lg:text-4xl text-2xl font-bold text-neutral-300">
-          {children}
-        </h1>
+        <a href="/">
+          <h1 className="lg:text-4xl text-2xl font-bold text-neutral-300">
+            docs.lock
+          </h1>
+        </a>
       </section>
-      <SearchBar />
       <section className="flex flex-row space-x-4 relative">
         {/* Icono del perfil con evento de clic */}
         <button
