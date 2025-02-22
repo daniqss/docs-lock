@@ -4,6 +4,7 @@
   margin: 0 40px 0; /* Arriba: 20px, Izquierda/Derecha: 40px, Abajo: 0 */
   padding: 2rem;
   text-align: center;
+  background-color: black;
 }
 
 .logo {

@@ -6,14 +6,80 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: rgba(255, 255, 255, 1);
+  background-color: var(--background-color);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+
+/* styles.css */
+:root {
+  --primary-color: #3498db; /* Azul */
+  --secondary-color: #2ecc71; /* Verde */
+  --foreground-color: white; /* Blanco */
+  --background-color: black; /* Gris oscuro */
+
+  --button-color: #3498db; /* Azul */
+  --label-color: #333; /* Texto oscuro */
+  --input-color: white; /* Blanco para inputs */
+  --text-color: #333; /* Texto oscuro */
+}
+
+/* styles.css */
+@layer utilities {
+  /* Colores de fondo */
+  .bg-primary {
+    background-color: var(--primary-color);
+  }
+
+  .bg-secondary {
+    background-color: var(--secondary-color);
+  }
+
+  .bg-background {
+    background-color: var(--background-color);
+  }
+
+  .bg-foreground {
+    background-color: var(--foreground-color);
+  }
+
+  /* Colores de texto */
+  .text-primary {
+    color: var(--primary-color);
+  }
+
+  .text-secondary {
+    color: var(--secondary-color);
+  }
+
+  .text-text {
+    color: var(--text-color);
+  }
+
+  .text-label {
+    color: var(--label-color);
+  }
+
+  /* Colores de botones */
+  .bg-button {
+    background-color: var(--button-color);
+  }
+
+  .bg-button:hover {
+    background-color: var(--primary-color); /* Para un hover de ejemplo */
+  }
+
+  /* Colores de inputs */
+  .bg-input {
+    background-color: var(--input-color);
+  }
+}
+
 
 a {
   font-weight: 500;
@@ -54,17 +120,4 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }
