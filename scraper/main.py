@@ -18,8 +18,9 @@ def main():
     for repo in repositories:
         if repo["lang"] == "TypeScript" or repo["lang"] == "JavaScript":
             package_data = GithubScraper.search_for_packagejson(repo["repository"])
-            if package_data:
-                print(json.dumps(package_data, indent=2))
+            if package_data is None:
+                continue
+            print(json.dumps(package_data["dependencies"], indent=2))
             
 
 if __name__ == "__main__":

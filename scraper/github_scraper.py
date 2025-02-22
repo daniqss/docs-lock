@@ -67,7 +67,7 @@ class GithubScraper:
 
         return [{"repository": f"https://github.com/{username}/{repo}", "lang": lang} for repo, lang in user_repositories]
 
-    def search_for_packagejson(repo_url: str):
+    def search_for_packagejson(repo_url: str) -> Dict | None:
         package_json_url = f"{repo_url.replace('github.com', 'raw.githubusercontent.com')}/main/package.json"
 
         try:
