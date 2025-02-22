@@ -2,11 +2,12 @@
 
 all:
 	$(MAKE) -C $(OBJ) $(TARGET)
+
 clean:
 	$(MAKE) -C $(OBJ) clean
 
 check:
-	$(MAKE) -C $(OBJ) rebar3 check
+	$(MAKE) -C $(OBJ) check
 
 test:
 	$(MAKE) -C $(OBJ) test
