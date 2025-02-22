@@ -1,7 +1,7 @@
 services:
   mongo:
     image: mongo:4.2.0
-    container_name: docs_lock
+    container_name: server_mongo
     ports:
       - "27017:27017"
     volumes:
