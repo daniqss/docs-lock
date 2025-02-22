@@ -1,6 +1,7 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
+  width: 100vw;  /* Ocupar todo el ancho de la pantalla */
+  height: 100vh; /* (Opcional) Ocupar toda la altura de la pantalla */
+  margin: 20px 40px 0; /* Arriba: 20px, Izquierda/Derecha: 40px, Abajo: 0 */
   padding: 2rem;
   text-align: center;
 }
@@ -39,4 +40,10 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }

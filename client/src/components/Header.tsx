@@ -25,7 +25,7 @@ function Header() {
   }, []);
 
   return (
-    <header className="flex flex-row justify-between items-center border-b lg:mb-16 lg:px-2 mb-8 relative">
+    <header className="flex flex-row justify-between items-center border-b lg:mt-4 lg:px-2 relative">
       <section className="flex flex-row space-x-2 items-center lg:my-3 my-1">
         <Link to="/">
           <h1 className="lg:text-4xl text-2xl font-bold text-neutral-300">

@@ -20,15 +20,17 @@ function HomePage() {
 
   return (
     <>
-      <Header />
-      <main>
+      <div className="styles.container">
+        <Header />
+        <main className="mt-12 mb-12">
         <div className="p-4 grid grid-cols-4 gap-4">
           {skills.map((skill, index) => (
             <SkillBox key={index} name={skill} />
           ))}
         </div>
-      </main>
-      <Footer />
+        </main>
+        <Footer />
+      </div>
     </>
   );
 }
