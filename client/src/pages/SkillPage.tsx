@@ -5,9 +5,9 @@ import SectionNotes from "../components/NotesList";
 import { useParams } from "react-router";
 import "./HomePage.css";
 import Footer from "../components/Footer";
-import ProfileIcon from "../components/icons/ProfileIcon";
 import { Section } from "../api/__generated__";
 import { useGetSections } from "../api/hooks/sections.hooks";
+import PaperIcon from "../components/icons/PaperIcon";
 
 function SkillPage() {
   const [selectedSection, setSelectedSection] = useState<Section | null>(null);
@@ -46,31 +46,34 @@ function SkillPage() {
               }}
             />
           </section>
+          <section className="w-2/3 bg-secondary p-4 rounded-lg items-center flex-col min-h-100">
 
           {/* right column */}
-          <section className="w-2/3 bg-secondary p-4 rounded-lg items-center min-h-100 overflow-y-auto">
+          <section className="items-center min-h-80 overflow-y-auto">
             {isSectionLoading && !sectionError && selectedSection !== null && (
               <SectionNotes selectedSection={selectedSection} />
             )}
           </section>
+           {/* Input and Send Button */}
+           <div className="flex items-center gap-2 p-3 mt-4">
+  <input
+    type="text"
+    value={text}
+    onChange={(e) => setText(e.target.value)}
+    placeholder="Escribe algo..."
+    className="flex-1 h-11 p-2 border text-black bg-gray-100 border-gray-500 rounded-md outline-none focus:ring-2 focus:ring-blue-500"
+  />
+  <button
+    onClick={handleSend}
+    className="p-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition"
+  >
+    <PaperIcon className="w-6 h-6 " />
+  </button>
+</div>
+
+        </section>
         </section>
 
-        {/* Input and Send Button */}
-        <div className="flex items-center gap-2 p-3 border border-gray-300 rounded-lg mt-4">
-          <input
-            type="text"
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-            placeholder="Escribe algo..."
-            className="flex-1 p-2 border border-gray-300 rounded-md outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          <button
-            onClick={handleSend}
-            className="p-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition"
-          >
-            <ProfileIcon className="w-8 h-8" />
-          </button>
-        </div>
       </main>
       <Footer />
     </>
