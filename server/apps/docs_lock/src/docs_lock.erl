@@ -95,7 +95,7 @@ stop(_St) ->
     User :: user(),
     Reason :: term().
 create_user(RealName, GitUsername) -> 
-    docs_lock_db:create_user(GitUsername, RealName).
+    docs_lock_db:create_user(RealName, GitUsername).
 
 -spec delete_user(UserId) -> Return when
     UserId :: binary(),
