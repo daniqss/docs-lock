@@ -1,18 +1,18 @@
 import { createContext, useState } from "react";
-import { user } from "../types";
+import { User } from "../api/__generated__";
 
 export type SessionContextType = {
-  user: user;
-  setUser: React.Dispatch<React.SetStateAction<user>>;
+  user: User;
+  setUser: React.Dispatch<React.SetStateAction<User>>;
 };
 
 const SessionContext = createContext<SessionContextType | null>(null);
 
 function SessionProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<user>({
-    name: "",
-    surname: "",
-    github: "",
+  const [user, setUser] = useState<User>({
+    id: 0,
+    gitUsername: "",
+    Realname: "",
   });
 
   return (

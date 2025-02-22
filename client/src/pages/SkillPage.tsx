@@ -5,6 +5,7 @@ import SectionNotes from "../components/NotesList";
 import { useParams } from "react-router";
 import "./HomePage.css";
 import Footer from "../components/Footer";
+<<<<<<< HEAD
 // import useFetch from "../hooks/useFetch";
 import { skillSection } from "../types";
 import { sections } from "../mocks";
@@ -12,6 +13,13 @@ import ProfileIcon from "../components/icons/ProfileIcon";
 
 function SkillPage() {
   const [selectedSection, setSelectedSection] = useState<skillSection | null>(null);
+=======
+import { useGetSections } from "../api/hooks/sections.hooks";
+import { Section } from "../api/__generated__";
+
+function SkillPage() {
+  const [selectedSection, setSelectedSection] = useState<Section | null>(null);
+>>>>>>> dfb73eb24ec19f08e3ac4e07d005079e90fe288a
   const { skill } = useParams<{ skill: string }>();
   const [text, setText] = useState("");
 
@@ -21,11 +29,13 @@ function SkillPage() {
     setText("");
   };
 
-  // example of useFetch
-  // const { data, loading, error } = useFetch(
-  //   `https://pokeapi.co/api/v2/pokemon/ditto`
-  // );
-  // console.log(data, loading, error);
+  const {
+    data: sections = [],
+    error: sectionError,
+    isLoading: isSectionLoading,
+  } = useGetSections();
+
+  const wantedSections = sections.filter((section) => section.skill === skill);
 
   return (
     <>
@@ -34,7 +44,11 @@ function SkillPage() {
         <h1 className="w-full text-3xl font-bold text-center mt-0 mb-8 bg-white text-red-500 py-4 rounded-lg">
           {skill}
         </h1>
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> dfb73eb24ec19f08e3ac4e07d005079e90fe288a
         {/* main container */}
         <section className="flex flex-1 gap-4">
           {/* left column */}
@@ -48,8 +62,15 @@ function SkillPage() {
           </section>
   
           {/* right column */}
+<<<<<<< HEAD
           <section className="w-2/3 bg-secondary p-4 rounded-lg items-center overflow-y-auto">
             <SectionNotes selectedSection={selectedSection} />
+=======
+          <section className="w-2/3 bg-secondary p-4 rounded-lg items-center min-h-100 overflow-y-auto">
+            {isSectionLoading && !sectionError && selectedSection !== null && (
+              <SectionNotes selectedSection={selectedSection} />
+            )}
+>>>>>>> dfb73eb24ec19f08e3ac4e07d005079e90fe288a
           </section>
         </section>
   
