@@ -9,6 +9,19 @@ npm run dev
 npm run types
 ```
 
+## server
+```bash
+cd server
+rebar3 shell
+```
+
+## database
+```bash
+cd server
+docker-compose up -d
+```
+
+
 ## scraper
 ```bash
 cd scraper
