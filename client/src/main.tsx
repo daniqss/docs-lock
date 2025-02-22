@@ -5,10 +5,15 @@ import HomePage from "./pages/HomePage.tsx";
 import { SessionProvider } from "./context/Session.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import SkillPage from "./pages/SkillPage.tsx";
+import LoginPage from "./pages/LoginPage.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <LoginPage />,
+  },
+  {
+    path: "/home",
     element: <HomePage />,
     errorElement: <HomePage />,
   },
