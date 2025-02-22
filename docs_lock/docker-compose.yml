@@ -1,0 +1,8 @@
+services:
+  mongo:
+    image: mongo:4.2.0
+    container_name: docs_lock
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./test/docker/mongo/:/docker-entrypoint-initdb.d/
