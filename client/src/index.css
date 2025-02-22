@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -16,19 +15,17 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-
 /* styles.css */
 :root {
   --background-color: #fcdad4; /* Gris oscuro */
   --secondary-color: #ffffff; /* Verde */
   --primary-color: #f6f6f6; /* Azul */
   --foreground-color: #f2f2f2; /* Blanco */
-  
 
   --button-color: #eb2026; /* Azul */
   --label-color: #ffffff; /* Texto oscuro */
   --input-color: #ffffff; /* Blanco para inputs */
-  --text-color:  #222222; /* Texto oscuro */
+  --text-color: #222222; /* Texto oscuro */
 }
 
 /* styles.css */
@@ -85,7 +82,6 @@
 .custom-font {
   font-family: "Orbitron", sans-serif;
 }
-
 
 a {
   font-weight: 500;
