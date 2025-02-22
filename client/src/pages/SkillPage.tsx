@@ -54,7 +54,7 @@ function SkillPage() {
           {/* left column */}
           <section className="w-1/3 bg-white p-4 rounded-lg items-center min-h-100 overflow-y-auto">
             <SectionList
-              sectionList={sections}
+              sectionList={wantedSections}
               handleClick={(section) => {
                 setSelectedSection(section);
               }}
