@@ -19,7 +19,7 @@ export default function SectionList({
         <h2 className="text-lg text-black font-bold mb-4">Lista de Secciones</h2>
   
         {/* Lista de secciones */}
-        <ul className="overflow-auto h-[85vh] space-y-2 ">
+        <ul className="space-y-2 ">
           {sectionList.map((section) => (
             <li
               key={section.name}

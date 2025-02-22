@@ -10,10 +10,10 @@ const SectionNotes: React.FC<SectionNotesProps> = ({ selectedSection }) => {
           ? `Notas de ${selectedSection.name}`
           : "Selecciona una sección"}
       </h2>
-      <div className="overflow-auto h-[85vh] space-y-2">
+      <div className="space-y-2 mx-20">
         {selectedSection ? (
           selectedSection.notes.map((note, index) => (
-            <div key={index} className="p-3 bg-primary rounded text-black">
+            <div key={index} className="p-3 bg-primary rounded text-black h-fit">
               {note}
             </div>
           ))

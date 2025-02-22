@@ -2,6 +2,8 @@ import { useState, useRef, useEffect, useContext } from "react";
 import ProfileIcon from "./icons/ProfileIcon";
 import { SessionContext, SessionContextType } from "../context/Session";
 import { Link } from "react-router-dom";
+// Add the font import in your CSS file or HTML file
+
 
 function Header() {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
@@ -28,25 +30,36 @@ function Header() {
       {/* Logo y título */}
       <section className="flex flex-row space-x-2 items-center">
         <Link to="/">
-          <h1 className="text-2xl lg:text-4xl font-bold text-gray-900">
-            docs.lock
-          </h1>
+        <h1 className="text-2xl lg:text-4xl font-bold text-gray-900 custom-font">
+  docs.lock
+</h1>
+
         </Link>
       </section>
   
       {/* Sección del perfil */}
       <section className="flex flex-row space-x-4 relative">
-        <button onClick={() => setDropdownOpen(!isDropdownOpen)} className="relative">
-          <ProfileIcon className="w-8 h-8 cursor-pointer" />
-        </button>
-  
-        {/* Dropdown */}
-        {isDropdownOpen && (
-          <div ref={dropdownRef} className="absolute right-0 top-12 shadow-lg rounded-md p-3 w-56 border bg-white">
-            <p className="font-semibold text-gray-900">{"name: "} {user.name} {user.surname}</p>
-            <p className="text-sm text-gray-700">{"github: "} {user.github}</p>
-          </div>
-        )}
+        <button 
+  onClick={() => setDropdownOpen(!isDropdownOpen)} 
+  className="relative focus:outline-none active:transform-none"
+>
+  <ProfileIcon className="w-8 h-8 cursor-pointer" />
+</button>
+
+{isDropdownOpen && (
+  <div
+    ref={dropdownRef}
+    className="absolute right-0 top-12 shadow-lg rounded-md p-3 w-56 border bg-white"
+  >
+    <p className="font-semibold text-gray-900 text-left">
+      {"name: "} {user.name} {user.surname}
+    </p>
+    <p className="text-sm text-gray-700 text-left">
+      {"github: "} {user.github}
+    </p>
+  </div>
+)}
+
       </section>
     </header>
   );  

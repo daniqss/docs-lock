@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -81,6 +82,10 @@
   }
 }
 
+.custom-font {
+  font-family: "Orbitron", sans-serif;
+}
+
 
 a {
   font-weight: 500;
@@ -106,11 +111,6 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
-
-/* h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-} */
 
 button {
   border-radius: 8px;
