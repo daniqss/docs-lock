@@ -12,7 +12,7 @@ env:
 
 jobs:
   check:
-    runs-on: [ubuntu-latest]
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
@@ -22,7 +22,7 @@ jobs:
           otp-version: ${{ env.OTP-VERSION }}
           rebar3-version: ${{ env.REBAR3-VERSION }}
 
-      - uses: actions/cache@v3.2.6
+      - uses: actions/cache@v3
         id: rebar3-cache
         with:
           path: |
@@ -32,12 +32,12 @@ jobs:
 
       - name: Compile
         run: |
-          make server clean
-          make server compile
+          make OBJ=server TARGET=clean
+          make OBJ=server TARGET=compile
           
-      - run: rebar3 check
+      - run: make OBJ=server TARGET=check
 
-      - run: rebar3 test
+      - run: make OBJ=server TARGET=test
 
       - uses: test-summary/action@v2
         if: always()
