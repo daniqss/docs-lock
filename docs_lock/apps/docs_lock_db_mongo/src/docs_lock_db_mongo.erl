@@ -18,8 +18,35 @@
     get_users/1
 ]).
 
+%%% SKILL EXPORTS
+-export([
+    create_skill/3,
+    delete_skill/1,
+    get_skill/1,
+    get_skills/1
+]).
+
+%%% SECTION EXPORTS
+-export([
+    create_section/4,
+    delete_section/1,
+    get_section/1,
+    get_sections/1
+]).
+
+%%% NOTE EXPORTS
+-export([
+    create_note/4,
+    delete_note/1,
+    get_note/1,
+    get_notes/1
+]).
+
 %%% MACROS
 -define(USERS_COLLECTION, <<"users">>).
+-define(SKILLS_COLLECTION, <<"skills">>).
+-define(NOTES_COLLECTION, <<"notes">>).
+-define(SECTIONS_COLLECTION, <<"sections">>).
 
 %%%-----------------------------------------------------------------------------
 %%% START/STOP EXPORTS
@@ -70,6 +97,133 @@ get_user(UserId) ->
     Reason :: term().
 get_users(Filters) ->
     get_all(?USERS_COLLECTION, Filters).
+
+%%%-----------------------------------------------------------------------------
+%%% SKILL EXPORTS
+%%%-----------------------------------------------------------------------------
+-spec create_skill(ID, SkillName, Participants) -> Return when
+    ID :: binary(),
+    SkillName :: binary(),
+    Participants :: [binary()],
+    Return :: {ok, Skill} | {error, Reason},
+    Skill :: docs_lock:skill(),
+    Reason :: term().
+create_skill(ID, SkillName, Participants) -> 
+    CreateSkillReq = #{
+        <<"_id">> => ID,
+        <<"skillName">> => SkillName,
+        <<"participants">> => Participants
+    },
+    create(?SKILLS_COLLECTION, CreateSkillReq).
+
+-spec delete_skill(SkillId) -> Return when
+    SkillId :: binary(),
+    Return :: ok | {error, Reason},
+    Reason :: term().
+delete_skill(SkillId) ->
+    delete(?SKILLS_COLLECTION, SkillId).
+
+-spec get_skill(SkillId) -> Return when
+    SkillId :: binary(),
+    Return :: {ok, Skill} | {error, Reason},
+    Skill :: docs_lock:skill(),
+    Reason :: term().
+get_skill(SkillId) ->
+    get_by_id(?SKILLS_COLLECTION, SkillId).
+
+-spec get_skills(Filters) -> Return when
+    Filters :: map(),
+    Return :: {ok, [Skill]} | {error, Reason},
+    Skill :: docs_lock:skill(),
+    Reason :: term().
+get_skills(Filters) ->
+    get_all(?SKILLS_COLLECTION, Filters).
+
+%%%-----------------------------------------------------------------------------
+%%% SECTION EXPORTS
+%%%-----------------------------------------------------------------------------
+-spec create_section(ID, SectionName, SkillId, Participants) -> Return when
+    ID :: binary(),
+    SectionName :: binary(),
+    SkillId :: binary(),
+    Participants :: [binary()],
+    Return :: {ok, Section} | {error, Reason},
+    Section :: docs_lock:section(),
+    Reason :: term().
+create_section(ID, SectionName, SkillId, Participants) -> 
+    CreateSectionReq = #{
+        <<"_id">> => ID,
+        <<"sectionName">> => SectionName,
+        <<"skillId">> => SkillId,
+        <<"participants">> => Participants
+    },
+    create(?SECTIONS_COLLECTION, CreateSectionReq).
+
+-spec delete_section(SectionId) -> Return when
+    SectionId :: binary(),
+    Return :: ok | {error, Reason},
+    Reason :: term().
+delete_section(SectionId) ->
+    delete(?SECTIONS_COLLECTION, SectionId).
+
+-spec get_section(SectionId) -> Return when
+    SectionId :: binary(),
+    Return :: {ok, Section} | {error, Reason},
+    Section :: docs_lock:section(),
+    Reason :: term().
+get_section(SectionId) ->
+    get_by_id(?SECTIONS_COLLECTION, SectionId).
+
+-spec get_sections(Filters) -> Return when
+    Filters :: map(),
+    Return :: {ok, [Section]} | {error, Reason},
+    Section :: docs_lock:section(),
+    Reason :: term().
+get_sections(Filters) ->
+    get_all(?SECTIONS_COLLECTION, Filters).
+
+%%%-----------------------------------------------------------------------------
+%%% NOTE EXPORTS
+%%%-----------------------------------------------------------------------------
+-spec create_note(ID, UserId, SectionId, Content) -> Return when
+    ID :: binary(),
+    SectionId :: binary(),
+    UserId :: binary(),
+    Content :: binary(),
+    Return :: {ok, Note} | {error, Reason},
+    Note :: docs_lock:note(),
+    Reason :: term().
+create_note(ID, UserId, SectionId, Content) -> 
+    CreateNoteReq = #{
+        <<"_id">> => ID,
+        <<"userId">> => UserId,
+        <<"sectionId">> => SectionId,
+        <<"content">> => Content
+    },
+    create(?NOTES_COLLECTION, CreateNoteReq).
+
+-spec delete_note(NoteId) -> Return when
+    NoteId :: binary(),
+    Return :: ok | {error, Reason},
+    Reason :: term().
+delete_note(NoteId) ->
+    delete(?NOTES_COLLECTION, NoteId).
+
+-spec get_note(NoteId) -> Return when
+    NoteId :: binary(),
+    Return :: {ok, Note} | {error, Reason},
+    Note :: docs_lock:note(),
+    Reason :: term().
+get_note(NoteId) ->
+    get_by_id(?NOTES_COLLECTION, NoteId).
+
+-spec get_notes(Filters) -> Return when
+    Filters :: map(),
+    Return :: {ok, [Note]} | {error, Reason},
+    Note :: docs_lock:note(),
+    Reason :: term().
+get_notes(Filters) ->
+    get_all(?NOTES_COLLECTION, Filters).
 
 %%%-----------------------------------------------------------------------------
 %%% INTERNAL FUNCTIONS
