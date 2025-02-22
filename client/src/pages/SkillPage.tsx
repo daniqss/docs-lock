@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Header from "../components/Header";
-import SectionList from "../components/SectionList"; // Asegúrate de importar SectionList
-import SectionNotes from "../components/NotesList"; // Asegúrate de importar SectionNotes
+import SectionList from "../components/SectionList";
+import SectionNotes from "../components/NotesList";
+import { useParams } from "react-router";
 
 // Define the Section type
 type Section = {
@@ -25,13 +26,9 @@ const sections: Section[] = [
   { name: "Testing", notes: ["Jest", "React Testing Library", "Cypress"] },
 ];
 
-// Definimos el tipo para las props del componente
-type SkillPageProps = {
-  skill: string;
-};
-
-function SkillPage({ skill }: SkillPageProps) {
-  const [selectedSection, setSelectedSection] = useState<Section | null>(null); // Inicializa sin selección
+function SkillPage() {
+  const [selectedSection, setSelectedSection] = useState<Section | null>(null);
+  const { skill } = useParams<{ skill: string }>();
 
   // Maneja la selección de la sección
   const handleClick = (section: Section) => {
@@ -42,12 +39,10 @@ function SkillPage({ skill }: SkillPageProps) {
     <>
       <Header />
       <h1 className="text-3xl font-bold text-center my-4">{skill}</h1>
-      
+
       <div className="flex h-screen">
         {/* Columna izquierda: Lista de secciones */}
         <SectionList sectionList={sections} handleClick={handleClick} />
-
-        {/* Columna derecha: Notas de la sección seleccionada */}
         <SectionNotes selectedSection={selectedSection} />
       </div>
     </>
