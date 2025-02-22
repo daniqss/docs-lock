@@ -108,10 +108,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/User"
-                                    }
+                                   "$ref": "#/components/schemas/User"
                                 }
                             }
                         }
@@ -263,10 +260,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Skill"
-                                    }
+                                    "$ref": "#/components/schemas/Skill"
                                 }
                             }
                         }
