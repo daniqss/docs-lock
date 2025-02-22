@@ -14,7 +14,7 @@ export default function SectionList({
     null
   );
   return (
-      <div className="text-center">
+      <div className="text-center bg-primary">
         {/* Título */}
         <h2 className="text-lg font-bold mb-4">Lista de Secciones</h2>
   

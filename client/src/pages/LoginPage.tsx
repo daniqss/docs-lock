@@ -28,9 +28,9 @@ function Login() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-secondary">
+    <div className="flex justify-center items-center min-h-screen rounded-lg bg-secondary">
       <div className="bg-primary p-8 rounded-lg shadow-lg w-96">
-        <h2 className="text-2xl font-bold text-center mb-6">Login</h2>
+        <h2 className="text-2xl text-black font-bold text-center mb-6">Login</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label htmlFor="name" className="block text-sm font-semibold text-gray-700">Name</label>

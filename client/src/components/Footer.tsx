@@ -2,7 +2,7 @@ import GithubIcon from "./icons/GithubIcon";
 
 export default function Footer() {
   return (
-    <footer className="flex justify-between items-center px-6 py-4 border-t">
+    <footer className="flex justify-between items-center px-6 py-4 border-t bg-footer">
   
       <p className="text-sm text-gray-600">Made in A Coruña (Spain) under MIT license</p>
   

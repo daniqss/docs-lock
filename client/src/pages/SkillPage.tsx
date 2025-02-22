@@ -33,7 +33,7 @@ function SkillPage() {
         {/* main container */}
         <section className="flex flex-1 gap-4">
           {/* left column */}
-          <section className="w-1/3 bg-gray-100 p-4 rounded-lg items-center">
+          <section className="w-1/3 bg-primary p-4 rounded-lg items-center">
             <SectionList
               sectionList={sections}
               handleClick={(section) => {
@@ -43,7 +43,7 @@ function SkillPage() {
           </section>
 
           {/* right column */}
-          <section className="w-2/3 bg-gray-50 p-4 rounded-lg items-center">
+          <section className="w-2/3 bg-secondary p-4 rounded-lg items-center">
             <SectionNotes selectedSection={selectedSection} />
           </section>
         </section>

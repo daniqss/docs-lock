@@ -25,10 +25,10 @@ function Header() {
   }, []);
 
   return (
-    <header className="flex flex-row justify-between items-center border-b lg:mt-4 lg:px-2 relative">
+    <header className="flex flex-row justify-between items-center border-b lg:mt-4 lg:px-2 relative bg-background">
       <section className="flex flex-row space-x-2 items-center lg:my-3 my-1">
         <Link to="/">
-          <h1 className="lg:text-4xl text-2xl font-bold text-neutral-300">
+          <h1 className="lg:text-4xl text-2xl font-bold bg-text">
             docs.lock
           </h1>
         </Link>
@@ -46,12 +46,12 @@ function Header() {
         {isDropdownOpen && (
          <div
          ref={dropdownRef}
-         className="absolute right-0 top-12 bg-white shadow-lg rounded-md p-3 w-56 border text-left"
+         className="absolute right-0 top-12 shadow-lg rounded-md p-3 w-56 border text-left"
        >
-         <p className="text-gray-900 font-semibold">
+         <p className="bg-text font-semibold">
            {"name: "} {user.name} {user.surname}
          </p>
-         <p className="text-gray-600 text-sm">
+         <p className="bg-text text-sm">
            {"github: "} {user.github}
          </p>
        </div>
