@@ -9,7 +9,6 @@ import LoginPage from "./pages/LoginPage.tsx";
 import { QueryClientProvider } from "@tanstack/react-query";
 import queryClient from "./api/QueryClient.ts";
 
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -31,8 +30,8 @@ createRoot(document.getElementById("root")!).render(
     <SessionProvider>
       {/* <App /> */}
       <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
+        <RouterProvider router={router} />
       </QueryClientProvider>
-      </ SessionProvider>
+    </SessionProvider>
   </StrictMode>
 );
