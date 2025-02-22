@@ -44,15 +44,18 @@ function Header() {
 
         {/* Dropdown */}
         {isDropdownOpen && (
-          <div
-            ref={dropdownRef}
-            className="absolute right-0 top-12 bg-white shadow-lg rounded-md p-3 w-56 border"
-          >
-            <p className="text-gray-900 font-semibold">
-              {user.name} {user.surname}
-            </p>
-            <p className="text-gray-600 text-sm">{user.github}</p>
-          </div>
+         <div
+         ref={dropdownRef}
+         className="absolute right-0 top-12 bg-white shadow-lg rounded-md p-3 w-56 border text-left"
+       >
+         <p className="text-gray-900 font-semibold">
+           {"name: "} {user.name} {user.surname}
+         </p>
+         <p className="text-gray-600 text-sm">
+           {"github: "} {user.github}
+         </p>
+       </div>
+       
         )}
       </section>
     </header>
