@@ -101,7 +101,7 @@
             ],
             "get": {
                 "operationId": "getUser",
-                "summary": "Retrive a user",
+                "summary": "Retrieve a user",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -271,16 +271,6 @@
                             }
                         }
                     },
-                    "404": {
-                        "description": "Not found",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/Error"
-                                }
-                            }
-                        }
-                    },
                     "default": {
                         "description": "Unexpected Error",
                         "content": {
@@ -386,9 +376,6 @@
                                 }
                             }
                         }
-                    },
-                    "404": {
-                        "description": "Not found"
                     },
                     "default": {
                         "description": "Unexpected Error",
@@ -539,9 +526,6 @@
                             }
                         }
                     },
-                    "404": {
-                        "description": "Not found"
-                    },
                     "default": {
                         "description": "Unexpected Error",
                         "content": {
@@ -635,7 +619,7 @@
                 "in": "path",
                 "required": true,
                 "schema": {
-                    "$ref": "#/components/schemas/UserId"
+                    "type": "string"
                 }
             },
             "skillId": {
@@ -643,15 +627,15 @@
                 "in": "path",
                 "required": true,
                 "schema": {
-                    "$ref": "#/components/schemas/SkillId"
+                    "type": "string"
                 }
             },
             "sectionId": {
-                "name": "skillId",
+                "name": "sectionId",
                 "in": "path",
                 "required": true,
                 "schema": {
-                    "$ref": "#/components/schemas/SectionId"
+                    "type": "string"
                 }
             },
             "noteId": {
@@ -659,14 +643,13 @@
                 "in": "path",
                 "required": true,
                 "schema": {
-                    "$ref": "#/components/schemas/NoteId"
+                    "type": "string"
                 }
             }
         },
         "schemas": {
             "UserId": {
-                "type": "string",
-                "description": "Unique identifier for a user"
+                "type": "string"
             },
             "CreateUserRequest": {
                 "type": "object",
