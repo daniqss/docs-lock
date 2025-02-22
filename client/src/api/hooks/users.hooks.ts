@@ -14,10 +14,10 @@ export const useGetUsers = () => {
   });
 };
 
-export const useGetUser = (userid: string) => {
+export const useGetUser = (userId: string) => {
   return useQuery<User, Error>({
-    queryKey: ["user", userid],
-    queryFn: async () => await getUser(userid),
+    queryKey: ["user", userId],
+    queryFn: async () => await getUser(userId),
   });
 };
 
@@ -31,8 +31,8 @@ export const useCreateUser = () => {
 
 export const useDeleteUser = () => {
   return useMutation({
-    mutationFn: (userid: string) => {
-      return Promise.resolve(deleteUser(userid));
+    mutationFn: (userId: string) => {
+      return Promise.resolve(deleteUser(userId));
     },
   });
 };
