@@ -3,7 +3,7 @@ import { useState } from "react";
 import Header from "./components/Header";
 import SkillBox from "./components/SkillBox";
 import Footer from "./components/Footer";
-import SkillPage from "./pages/SkillPage";
+import SkillPage from "./pages/SkillsPage";
 
 function App() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

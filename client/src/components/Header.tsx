@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, useContext } from "react";
 import ProfileIcon from "./icons/ProfileIcon";
 import { SessionContext, SessionContextType } from "../context/Session";
+import { Link } from "react-router-dom";
 
 function Header() {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
@@ -26,11 +27,11 @@ function Header() {
   return (
     <header className="flex flex-row justify-between items-center border-b lg:mb-16 lg:px-2 mb-8 relative">
       <section className="flex flex-row space-x-2 items-center lg:my-3 my-1">
-        <a href="/">
+        <Link to="/">
           <h1 className="lg:text-4xl text-2xl font-bold text-neutral-300">
             docs.lock
           </h1>
-        </a>
+        </Link>
       </section>
       <section className="flex flex-row space-x-4 relative">
         {/* Icono del perfil con evento de clic */}

@@ -25,7 +25,7 @@ const sections: Section[] = [
 
 // Definimos el tipo para las props del componente
 type SkillPageProps = {
-  skill: string;
+  skill?: string;
 };
 
 function SkillPage({ skill }: SkillPageProps) {
@@ -60,7 +60,7 @@ function SkillPage({ skill }: SkillPageProps) {
           <h2 className="text-lg font-bold mb-4">
             {selectedSection
               ? `Notas de ${selectedSection.name}`
-              : "Selecciona una sección"}
+              : `Selecciona una ${skill} sección`}
           </h2>
           <div className="overflow-auto h-[85vh] space-y-2 pr-2">
             {selectedSection ? (
