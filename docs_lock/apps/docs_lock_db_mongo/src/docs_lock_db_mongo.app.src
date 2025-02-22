@@ -1,0 +1,9 @@
+{application, docs_lock_db_mongo, [
+    {description, "An OTP application"},
+    {vsn, "0.0.1"},
+    {registered, []},
+    {applications, [kernel, stdlib, mongodb]},
+    {mod, {docs_lock_db_mongo, []}},
+    {module, [docs_lock_db_mongo]},
+    {env, []}
+]}.

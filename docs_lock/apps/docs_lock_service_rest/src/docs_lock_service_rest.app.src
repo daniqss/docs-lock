@@ -1,0 +1,9 @@
+{application, docs_lock_service_rest, [
+    {description, "An OTP application"},
+    {vsn, "0.0.1"},
+    {registered, []},
+    {applications, [kernel, stdlib, erf]},
+    {mod, {docs_lock_service_rest, []}},
+    {module, [docs_lock_service_rest]},
+    {env, []}
+]}.
