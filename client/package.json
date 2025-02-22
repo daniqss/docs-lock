@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "types": "npx @hey-api/openapi-ts -i ../docs/docs_lock.openapi.json -o src/api/generated -c @hey-api/client-fetch"
+    "types": "npx @hey-api/openapi-ts -i ../docs/docs_lock.openapi.json -o src/api/__generated__ -c @hey-api/client-fetch"
   },
   "dependencies": {
     "@hey-api/client-fetch": "^0.8.1",
