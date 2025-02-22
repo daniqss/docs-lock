@@ -28,7 +28,7 @@ function Login() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-secondary">
+    <div className="flex justify-center items-center rounded-lg min-h-screen bg-secondary">
       <div className="bg-primary p-8 rounded-lg shadow-lg w-96">
         <h2 className="text-2xl font-bold text-center mb-6">Login</h2>
         <form onSubmit={handleSubmit}>
@@ -39,7 +39,7 @@ function Login() {
               id="name" 
               value={name} 
               onChange={(e) => setName(e.target.value)} 
-              className="w-full p-3 mt-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-input"
+              className="w-full p-3 mt-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-input text-black"
             />
           </div>
           <div className="mb-4">
@@ -49,7 +49,7 @@ function Login() {
               id="surname" 
               value={surname} 
               onChange={(e) => setSurname(e.target.value)} 
-              className="w-full p-3 mt-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-input"
+              className="w-full p-3 mt-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-input text-black"
             />
           </div>
           <div className="mb-4">
@@ -59,7 +59,7 @@ function Login() {
               id="username" 
               value={github} 
               onChange={(e) => setGithub(e.target.value)} 
-              className="w-full p-3 mt-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-input"
+              className="w-full p-3 mt-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-input text-black"
             />
           </div>
           {error && <div className="text-red-500 text-sm mb-4">{error}</div>}
