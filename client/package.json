@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "types": "npx @hey-api/openapi-ts -i ../docs/docs_lock.openapi.json -o src/api/generated -c @hey-api/client-fetch"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.8",
