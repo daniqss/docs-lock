@@ -1,5 +1,8 @@
-# how to run
-## frontend
+# Docs Lock
+
+
+## Usage
+### Frontend
 ```bash
 cd client
 npm install
@@ -9,20 +12,33 @@ npm run dev
 npm run types
 ```
 
-## server
+### Backend
+
+- Compile the server project
 ```bash
-cd server
-rebar3 shell
+make OBJ=server TARGET=compile
 ```
 
-## database
+- Up/Down mongo container
 ```bash
 cd server
-docker-compose up -d
+make mongo_up
+make mongo_down
 ```
 
+- Init server and open shell
+```bash
+make OBJ=server TARGET=shell or 
+cd server && make shell
+```
 
-## scraper
+- Checks and run tests
+```bash
+make OBJ=server TARGET=check
+make OBJ=server TARGET=test
+```
+
+### Scraper
 ```bash
 cd scraper
 make install
