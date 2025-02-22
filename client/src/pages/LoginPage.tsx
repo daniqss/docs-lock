@@ -2,6 +2,8 @@ import { useContext, useState } from "react";
 import { SessionContext, SessionContextType } from "../context/Session";
 import { useNavigate } from "react-router-dom";
 import { useGetUsers } from "../api/hooks/users.hooks";
+import BoardingBox from '../components/Boarding';
+import Footer from '../components/Footer';
 
 function Login() {
   const { setUser } = useContext(SessionContext) as SessionContextType;
@@ -48,11 +50,14 @@ function Login() {
   };
 
   return (
-    <div className="flex justify-center items-center rounded-lg min-h-screen bg-secondary">
-      <div className="bg-primary p-8 rounded-lg shadow-lg w-96">
-        <h2 className="text-2xl text-black font-bold text-center mb-6">
-          Login
-        </h2>
+    <>
+    <div className="items-center justify-center rounded-lg min-h-screen bg-secondary flex gap-4 p-4">
+  <div className="flex h-full gap-8">
+    <section className="bg-primary p-8 rounded-lg shadow-lg w-150 mx-6">
+      <BoardingBox />
+    </section>
+    <section className="bg-primary p-8 rounded-lg shadow-lg w-80 mx-6">
+        <h2 className="text-2xl text-black font-bold text-center mb-6">Login</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label
@@ -107,8 +112,11 @@ function Login() {
             Login
           </button>
         </form>
-      </div>
+      </section>
     </div>
+    </div>
+    <Footer />
+    </>
   );
 }
 
