@@ -220,7 +220,7 @@ export type GetUserResponses = {
     /**
      * OK
      */
-    200: Array<User>;
+    200: User;
 };
 
 export type GetUserResponse = GetUserResponses[keyof GetUserResponses];
@@ -336,7 +336,7 @@ export type GetSkillResponses = {
     /**
      * OK
      */
-    200: Array<Skill>;
+    200: Skill;
 };
 
 export type GetSkillResponse = GetSkillResponses[keyof GetSkillResponses];
