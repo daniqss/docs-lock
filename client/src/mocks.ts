@@ -27,3 +27,5 @@ export const skills: string[] = [
   "Next.js",
   "GraphQL",
 ];
+
+

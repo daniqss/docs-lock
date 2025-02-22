@@ -1,7 +1,7 @@
 #root {
   width: 100vw;  /* Ocupar todo el ancho de la pantalla */
   height: 100vh; /* (Opcional) Ocupar toda la altura de la pantalla */
-  margin: 20px 40px 0; /* Arriba: 20px, Izquierda/Derecha: 40px, Abajo: 0 */
+  margin: 0 40px 0; /* Arriba: 20px, Izquierda/Derecha: 40px, Abajo: 0 */
   padding: 2rem;
   text-align: center;
 }

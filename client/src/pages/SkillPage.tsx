@@ -24,15 +24,16 @@ function SkillPage() {
   return (
     <>
       <Header />
-      <main className="mt-6 mb-12">
-        <h1 className="w-full text-3xl font-bold text-center mt-1 mb-4 bg-gray-200 py-2 rounded-lg">
-          {skill}
-        </h1>
+      <main className="mt-8 mb-12">
+      <h1 className="w-full text-3xl font-bold text-center mt-0 mb-8 bg-gray-200 py-4 rounded-lg">
+        {skill}
+      </h1>
+
 
         {/* main container */}
-        <section className="flex flex-1 gap-4 px-4">
+        <section className="flex flex-1 gap-4">
           {/* left column */}
-          <section className="w-1/3 bg-gray-100 p-4 rounded-lg">
+          <section className="w-1/3 bg-gray-100 p-4 rounded-lg items-center">
             <SectionList
               sectionList={sections}
               handleClick={(section) => {

@@ -12,7 +12,7 @@ function HomePage() {
     <>
       <Header />
       <main>
-        <div className="p-4 grid grid-cols-4 gap-4">
+        <div className="p-4 grid grid-cols-4 gap-4 mt-16 mb-12">
           {skills.map((skill, index) => (
             <SkillBox key={index} name={skill} />
           ))}
