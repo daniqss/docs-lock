@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import App from "./App.tsx";
+import HomePage from "./pages/HomePage.tsx";
 import { SessionProvider } from "./context/Session.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import SkillPage from "./pages/SkillPage.tsx";
@@ -9,8 +9,8 @@ import SkillPage from "./pages/SkillPage.tsx";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
-    errorElement: <App />,
+    element: <HomePage />,
+    errorElement: <HomePage />,
   },
   {
     path: "/skills/:skill",

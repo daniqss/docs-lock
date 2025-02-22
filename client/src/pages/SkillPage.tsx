@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import SectionList from "../components/SectionList";
 import SectionNotes from "../components/NotesList";
 import { useParams } from "react-router";
+import Footer from "../components/Footer";
 
 // Define the Section type
 type Section = {
@@ -38,13 +39,15 @@ function SkillPage() {
   return (
     <>
       <Header />
-      <h1 className="text-3xl font-bold text-center my-4">{skill}</h1>
+      <main>
+        <h1 className="text-3xl font-bold text-center my-4">{skill}</h1>
 
-      <div className="flex h-screen">
-        {/* Columna izquierda: Lista de secciones */}
-        <SectionList sectionList={sections} handleClick={handleClick} />
-        <SectionNotes selectedSection={selectedSection} />
-      </div>
+        <div className="flex h-screen">
+          <SectionList sectionList={sections} handleClick={handleClick} />
+          <SectionNotes selectedSection={selectedSection} />
+        </div>
+      </main>
+      <Footer />
     </>
   );
 }
