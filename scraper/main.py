@@ -5,22 +5,16 @@ import os
 from bs4 import BeautifulSoup # type: ignore
 
 def search_for_repositories(file_name: str) -> List[str]:
-    # Lista para almacenar los nombres de los repositorios
     repositories = []
     
-    # Leer el archivo HTML
     with open(file_name, "r", encoding="utf-8") as file:
         html_content = file.read()
     
-    # Crear el objeto BeautifulSoup
     soup = BeautifulSoup(html_content, 'html.parser')
     
-    # Encontrar todos los elementos con la clase wb-break-all
     repo_elements = soup.find_all(class_='wb-break-all')
     
-    # Extraer el texto de cada elemento (nombre del repositorio)
     for repo in repo_elements:
-        # El nombre del repositorio está dentro de un elemento <a>
         repo_name = repo.find('a')
         if repo_name:
             repositories.append(repo_name.text.strip())
@@ -42,7 +36,6 @@ def download_repositories_page(username: str) -> List[str]:
 
             repositories_names = search_for_repositories(file_name)
             
-            # remove used file
             os.remove(file_name)
 
             if len(repositories_names) == 0:
