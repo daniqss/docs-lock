@@ -1,10 +1,7 @@
 export default function BoardingBox() {
   return (
     <>
-    <h1 className="text-7xl font-bold text-gray-900 flex items-center justify-center gap-2 md-5 ">
-          🚀 docs.lock
-        </h1>
-    <h1 className="text-2xl font-bold text-gray-900 flex items-center justify-center gap-2 my-5">
+    <h1 className="text-2xl font-bold text-gray-900 flex items-center justify-center gap-2 mb-4">
           Conocimiento Colaborativo para Desarrolladores
         </h1>
     <div className="max-w-md mx-auto p-6 text-center shadow-lg rounded-2xl border border-gray-200 bg-white">

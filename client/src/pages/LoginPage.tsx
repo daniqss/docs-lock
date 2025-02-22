@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useGetUsers } from "../api/hooks/users.hooks";
 import BoardingBox from "../components/Boarding";
 import Footer from "../components/Footer";
+import AppIcon from "../components/icons/AppIcon"; // Importamos el icono
 
 function Login() {
   const { setUser } = useContext(SessionContext) as SessionContextType;
@@ -38,7 +39,6 @@ function Login() {
         return;
       }
 
-      // if there's no user in session storage, set it
       if (!sessionStorage.getItem("user"))
         sessionStorage.setItem("user", JSON.stringify(user));
       setUser(user);
@@ -50,7 +50,13 @@ function Login() {
 
   return (
     <>
-      <div className="items-center justify-center rounded-lg min-h-screen bg-secondary flex gap-4 p-4">
+      <div className="relative w-full flex justify-center mt-16">
+        <h1 className="absolute top-16 text-8xl font-bold text-gray-900 flex items-center gap-3 z-50">
+          <AppIcon className="w-35 h-35" /> docs.lock
+        </h1>
+      </div>
+
+      <div className="items-center justify-center rounded-lg min-h-screen bg-secondary flex p-4">
         <div className="flex h-full gap-8">
           <section className="bg-primary p-8 rounded-lg shadow-lg w-150 mx-6">
             <BoardingBox />
