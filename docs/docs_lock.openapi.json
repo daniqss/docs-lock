@@ -56,6 +56,22 @@
             "get": {
                 "operationId": "getUsers",
                 "summary": "Retrieve a list of users",
+                "parameters": [
+                    {
+                      "in": "query",
+                      "name": "gitUsername",
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                        "in": "query",
+                        "name": "realName",
+                        "schema": {
+                          "type": "string"
+                        }
+                      }
+                  ],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -215,6 +231,15 @@
             "get": {
                 "operationId": "getSkills",
                 "summary": "Retrieve a list of skills",
+                "parameters": [
+                    {
+                      "in": "query",
+                      "name": "skillName",
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  ],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -357,6 +382,22 @@
             "get": {
                 "operationId": "getSections",
                 "summary": "Retrieve a list of sections",
+                "parameters": [
+                    {
+                      "in": "query",
+                      "name": "sectionName",
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                        "in": "query",
+                        "name": "skillId",
+                        "schema": {
+                          "type": "string"
+                        }
+                      }
+                  ],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -393,6 +434,29 @@
             "get": {
                 "operationId": "getSection",
                 "summary": "Retrieve a Section",
+                "parameters": [
+                    {
+                      "in": "query",
+                      "name": "userId",
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                        "in": "query",
+                        "name": "sectionId",
+                        "schema": {
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "in": "query",
+                        "name": "content",
+                        "schema": {
+                          "type": "string"
+                        }
+                      }
+                  ],
                 "responses": {
                     "200": {
                         "description": "OK",
