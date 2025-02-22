@@ -13,13 +13,13 @@ export default function SectionList({
   const [selectedSection, setSelectedSection] = useState<skillSection | null>(
     null
   );
-
   return (
-    <div className="flex h-screen">
-      {/* Columna izquierda (Lista de secciones) */}
-      <aside className="w-64 bg-gray-100 p-4 border-r h-full overflow-y-auto">
+      <div className="text-center">
+        {/* Título */}
         <h2 className="text-lg font-bold mb-4">Lista de Secciones</h2>
-        <ul className="space-y-2 pr-2">
+  
+        {/* Lista de secciones */}
+        <ul className="overflow-auto h-[85vh] space-y-2 pr-2">
           {sectionList.map((section) => (
             <li
               key={section.name}
@@ -37,7 +37,6 @@ export default function SectionList({
             </li>
           ))}
         </ul>
-      </aside>
-    </div>
+      </div>
   );
-}
+}  

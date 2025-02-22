@@ -9,18 +9,21 @@ function HomePage() {
   const [skills] = useState(skillsMock);
 
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <Header />
-      <main>
-        <div className="p-4 grid grid-cols-4 gap-4">
+      <main className="flex-1 flex">
+        <div
+          className="p-4 grid gap-4 mt-16 mb-12 w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+        >
           {skills.map((skill, index) => (
             <SkillBox key={index} name={skill} />
           ))}
         </div>
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
+
 
 export default HomePage;
