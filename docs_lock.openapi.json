@@ -294,8 +294,8 @@
                 }
             },
             "delete": {
-                "operationId": "deleteUser",
-                "summary": "Deletes a user",
+                "operationId": "deleteSkill",
+                "summary": "Deletes a skill",
                 "responses": {
                     "204": {
                         "description": "No content"
