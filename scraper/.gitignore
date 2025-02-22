@@ -2,4 +2,6 @@
 !*.py
 !requirements.txt
 !Makefile
+!install.sh
+!run.sh
 !.gitignore
