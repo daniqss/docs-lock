@@ -1,10 +1,11 @@
 import sys
 import requests
-from typing import List
+from typing import List, Tuple, Dict
 import os
 from bs4 import BeautifulSoup # type: ignore
+import json
 
-def search_for_repositories(file_name: str) -> List[str]:
+def search_for_repositories_in_html(file_name: str) -> List[Tuple[str, str]]:
     repositories = []
     
     with open(file_name, "r", encoding="utf-8") as file:
@@ -12,17 +13,24 @@ def search_for_repositories(file_name: str) -> List[str]:
     
     soup = BeautifulSoup(html_content, 'html.parser')
     
-    repo_elements = soup.find_all(class_='wb-break-all')
+    repo_containers = soup.find_all('div', {'class': 'col-10 col-lg-9 d-inline-block'})
     
-    for repo in repo_elements:
-        repo_name = repo.find('a')
-        if repo_name:
-            repositories.append(repo_name.text.strip())
+    for container in repo_containers:
+        repo_name_element = container.find(class_='wb-break-all')
+        if not repo_name_element or not repo_name_element.find('a'):
+            continue
+            
+        repo_name = repo_name_element.find('a').text.strip()
+        
+        language_element = container.find('span', {'itemprop': 'programmingLanguage'})
+        language = language_element.text.strip() if language_element else "No language specified"
+        
+        repositories.append((repo_name, language))
     
     return repositories
 
-def download_repositories_page(username: str) -> List[str]:
-    user_repositores: List[str] = []
+def scrape_repositories(username: str) -> List[Dict[str, str]]:
+    user_repositories: List[Tuple[str, str]] = []
 
     for i in range(1, 99):
         url = f"https://github.com/{username}?page={i}&tab=repositories"
@@ -34,17 +42,19 @@ def download_repositories_page(username: str) -> List[str]:
                 file.write(response.text)
             print(f"{username} repositories page {i} downloaded successfully")
 
-            repositories_names = search_for_repositories(file_name)
+            repositories_info = search_for_repositories_in_html(file_name)
             
             os.remove(file_name)
 
-            if len(repositories_names) == 0:
-                return user_repositores
+            if len(repositories_info) == 0:
+                break
             else:
-                user_repositores.extend(repositories_names)
+                user_repositories.extend(repositories_info)
         else:
             print(f"Failed to download {username} repositories page")
-    return ""
+            break
+    
+    return [{"repository": repo, "lang": lang} for repo, lang in user_repositories]
 
 def main():
     if len(sys.argv) != 2:
@@ -52,8 +62,9 @@ def main():
         sys.exit(1)
     
     username = sys.argv[1]
-    repositories = download_repositories_page(username)
-    print(repositories)
+    repositories = scrape_repositories(username)
+    
+    print(json.dumps(repositories, indent=2))
 
 if __name__ == "__main__":
     main()
