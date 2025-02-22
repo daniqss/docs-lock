@@ -27,6 +27,8 @@ init([]) ->
     },
     UsersAPIConf = #{
         spec_path => <<"../docs/docs_lock.openapi.json">>,
+        preprocess_middlewares => [docs_lock_service_rest_middlewares],
+        postprocess_middlewares => [docs_lock_service_rest_middlewares],
         callback => docs_lock_service_rest_callbacks,
         port => 8080
     },
