@@ -13,7 +13,7 @@ function HomePage() {
       <Header />
       <main className="flex-1 flex">
         <div
-          className="p-4 grid gap-4 mt-16 mb-12 w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+          className="p-4 grid gap-8 mt-16 mb-12 w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
         >
           {skills.map((skill, index) => (
             <SkillBox key={index} name={skill} />

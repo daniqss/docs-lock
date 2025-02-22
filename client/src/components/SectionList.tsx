@@ -14,19 +14,19 @@ export default function SectionList({
     null
   );
   return (
-      <div className="text-center bg-primary">
+      <div className="text-center bg-white">
         {/* Título */}
-        <h2 className="text-lg font-bold mb-4">Lista de Secciones</h2>
+        <h2 className="text-lg text-black font-bold mb-4">Lista de Secciones</h2>
   
         {/* Lista de secciones */}
-        <ul className="overflow-auto h-[85vh] space-y-2 pr-2">
+        <ul className="overflow-auto h-[85vh] space-y-2 ">
           {sectionList.map((section) => (
             <li
               key={section.name}
               className={`p-2 rounded cursor-pointer ${
                 selectedSection?.name === section.name
-                  ? "bg-blue-500 text-white"
-                  : "bg-white hover:bg-gray-200"
+                  ? "bg-red-500 text-white"
+                  : "bg-primary text-black hover:bg-gray-200"
               }`}
               onClick={() => {
                 setSelectedSection(section);

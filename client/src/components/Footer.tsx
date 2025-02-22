@@ -13,11 +13,11 @@ export default function Footer() {
         <span>Daniel Queijo Seoane</span>
       </div>
   
-      <a
+      <a 
         href="https://github.com/daniqss/docs-lock"
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center space-x-2 text-blue-600 hover:underline"
+        className="flex items-center space-x-2 text-blue-600 githubtag"
       >
         <GithubIcon className="w-5 h-5" />
         <span>Ver el repositorio en GitHub</span>
