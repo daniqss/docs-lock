@@ -5,6 +5,7 @@ import SectionNotes from "../components/NotesList";
 import { useParams } from "react-router";
 import "./HomePage.css";
 import Footer from "../components/Footer";
+import useFetch from "../hooks/useFetch";
 
 // Define the Section type
 type Section = {
@@ -32,7 +33,12 @@ function SkillPage() {
   const [selectedSection, setSelectedSection] = useState<Section | null>(null);
   const { skill } = useParams<{ skill: string }>();
 
-  // Maneja la selección de la sección
+  // example of useFetch
+  const { data, loading, error } = useFetch(
+    `https://pokeapi.co/api/v2/pokemon/ditto`
+  );
+  console.log(data, loading, error);
+
   const handleClick = (section: Section) => {
     setSelectedSection(section); // Actualiza la sección seleccionada
   };
