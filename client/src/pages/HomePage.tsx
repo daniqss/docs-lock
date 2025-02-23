@@ -18,9 +18,7 @@ function HomePage() {
       <main className="flex-1 flex">
         <section className="p-4 grid gap-8 mt-16 mb-12 w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {!skillsIsLoading && !skillsError && skills.length > 0 ? (
-            skills.map((skill, index) => (
-              <SkillBox key={index} name={skill.skillName ?? "Sin nombre"} />
-            ))
+            skills.map((skill, index) => <SkillBox key={index} skill={skill} />)
           ) : (
             <p>No hay skills disponibles.</p>
           )}
