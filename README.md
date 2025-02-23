@@ -25,7 +25,7 @@ npm run types
 make OBJ=server TARGET=compile
 ```
 
-- Up/Down mongo container
+- Up/Down mongodb container
 ```bash
 cd server
 make mongo_up
@@ -42,12 +42,6 @@ cd server && make shell
 ```bash
 make OBJ=server TARGET=check
 make OBJ=server TARGET=test
-```
-
-### database
-```bash
-cd server
-docker-compose up -d
 ```
 
 ## Features  
