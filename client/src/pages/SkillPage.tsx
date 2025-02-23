@@ -115,15 +115,15 @@ function SkillPage() {
     <>
       <Header />
       <main className="mt-20 mb-12 mx-4 flex-1">
-        <h1 className="w-full text-3xl font-bold text-center mt-0 mb-8 bg-primary text-red-500 py-4 rounded-lg">
+        <h1 className="w-full text-3xl font-bold text-center mt-0 mb-8 bg-white text-red-500 py-4 rounded-lg">
           {skill}
         </h1>
 
-        <section className="flex flex-1 gap-4">
-          <section className="w-1/3 bg-primary p-4 rounded-lg min-h-[60vh] max-h-[60vh] overflow-y-auto shadow-lg">
-            <h2 className="text-lg font-semibold">Secciones</h2>
+        <section className="flex flex-1  gap-4">
+          <section className="w-1/3 bg-white p-4 rounded-lg bg-white min-h-[60vh] max-h-[60vh] shadow-lg">
+          <section className="min-h-[40vh] max-h-[40vh] overflow-y-auto">
             {wantedSections.length === 0 ? (
-              <p className="text-gray-500 text-center">No hay secciones disponibles.</p>
+              <p className="text-gray-500  text-center">No hay secciones disponibles.</p>
             ) : (
               <SectionList
                 sectionList={wantedSections}
@@ -132,7 +132,8 @@ function SkillPage() {
                 }}
               />
             )}
-            <div className="mt-4">
+            </section>
+            <div className="mb-10">
               <input
                 type="text"
                 value={newSectionName}
@@ -165,7 +166,7 @@ function SkillPage() {
               )}
             </section>
 
-            <div className="flex items-center gap-2 p-3 mt-6">
+            <div className="flex items-center gap-4 p-3 mt-9">
               <input
                 type="text"
                 value={text}
@@ -177,7 +178,7 @@ function SkillPage() {
                 onClick={handleSend}
                 className="p-2 bg-button text-white rounded-md hover:bg-blue-600 transition"
               >
-                <PaperIcon className="w-6 h-6 " />
+                <PaperIcon className="w-6 h-6" />
               </button>
             </div>
           </section>

@@ -13,7 +13,7 @@ export default function SectionList({
   const [selectedSection, setSelectedSection] = useState<Section | null>(null);
 
   return (
-    <div className="text-center bg-white">
+    <div className="text-center">
       {/* Título */}
       <h2 className="text-lg text-black font-bold mb-4">Lista de Secciones</h2>
 
