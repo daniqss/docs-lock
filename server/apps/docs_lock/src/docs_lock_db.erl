@@ -283,7 +283,7 @@ get_sections(Filters) ->
 create_note(UserId, SectionId, Content) -> 
     ID = set_id(UserId, get_notes),
     Mod = docs_lock_conf:dbms(),
-    Mod:create_note(ID, SectionId, UserId, Content).
+    Mod:create_note(ID, UserId, SectionId, Content).
 
 -spec delete_note(NoteId) -> Return when
     NoteId :: binary(),
