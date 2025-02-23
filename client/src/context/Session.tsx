@@ -17,7 +17,7 @@ function SessionProvider({ children }: { children: React.ReactNode }) {
     realName: "",
   });
   const [selectedSkill, setSelectedSkill] = useState<Skill>({
-    id: 0,
+    _id: 0,
     skillName: "",
     participants: {
       participants: [],

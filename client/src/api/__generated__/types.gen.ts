@@ -46,11 +46,9 @@ export type CreateSectionRequest = {
 };
 
 export type Section = {
-  id?: number;
-  seccionName?: string;
-  skill?: {
-    [key: string]: unknown;
-  };
+  _id?: number;
+  sectionName?: string;
+  skillId?: string;
   participants?: {
     participants?: Array<UserId>;
   };

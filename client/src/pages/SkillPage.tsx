@@ -28,9 +28,13 @@ function SkillPage() {
     isLoading: isSectionLoading,
   } = useGetSections();
 
-  const wantedSections = sections.filter(
-    (section) => section.skill === selectedSkill
-  );
+  const wantedSections = sections.filter((section) => {
+    console.log(selectedSkill);
+    // console.log(section.skillId, " == ", selectedSkill.id);
+    return section.skillId === selectedSkill._id;
+  });
+
+  console.log(sections);
 
   return (
     <>

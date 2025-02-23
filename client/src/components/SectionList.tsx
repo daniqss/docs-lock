@@ -1,16 +1,16 @@
 import { useState } from "react";
-import { Skill } from "../api/__generated__";
+import { Section, Skill } from "../api/__generated__";
 
-interface SkillBoxProps {
-  sectionList: Skill[];
+interface SectionBoxProps {
+  sectionList: Section[];
   handleClick: (section: Skill) => void;
 }
 
 export default function SectionList({
   sectionList,
   handleClick,
-}: SkillBoxProps) {
-  const [selectedSection, setSelectedSection] = useState<Skill | null>(null);
+}: SectionBoxProps) {
+  const [selectedSection, setSelectedSection] = useState<Section | null>(null);
 
   return (
     <div className="text-center bg-white">
@@ -21,9 +21,9 @@ export default function SectionList({
       <ul className="space-y-2 ">
         {sectionList.map((section) => (
           <li
-            key={section.name}
+            key={section._id}
             className={`p-2 rounded cursor-pointer ${
-              selectedSection?.name === section.name
+              selectedSection?.sectionName === section.sectionName
                 ? "bg-red-500 text-white"
                 : "bg-primary text-black hover:bg-gray-200"
             }`}
@@ -32,7 +32,7 @@ export default function SectionList({
               handleClick(section);
             }}
           >
-            {section.name}
+            {section.sectionName}
           </li>
         ))}
       </ul>
