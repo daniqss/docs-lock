@@ -56,7 +56,7 @@ function SkillPage() {
         {/* main container */}
         <section className="flex flex-1 gap-4">
           {/* left column */}
-          <section className="w-1/3 bg-white p-4 rounded-lg items-center min-h-100 max-h-100 overflow-y-auto">
+          <section className="w-1/3 bg-white p-4 rounded-lg items-center min-h-[60vh] max-h-[60vh] overflow-y-auto">
             <SectionList
               sectionList={wantedSections}
               handleClick={(section) => {
@@ -64,9 +64,9 @@ function SkillPage() {
               }}
             />
           </section>
-          <section className="w-2/3 bg-secondary p-4 rounded-lg items-center flex-col min-h-100 max-h-100">
+          <section className="w-2/3 bg-secondary p-4 rounded-lg items-center flex-col min-h-[60vh] max-h-[60vh]">
             {/* right column */}
-            <section className="items-center max-h-70 min-h-70 overflow-y-auto">
+            <section className="items-center min-h-[40vh] max-h-[40vh] overflow-y-auto">
               {!isSectionLoading &&
                 !sectionError &&
                 selectedSection !== null && (
