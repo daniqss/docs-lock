@@ -24,7 +24,7 @@ A clear and concise description of what you expected to happen.
 If applicable, add screenshots to help explain your problem.
 
 **Desktop (please complete the following information):**
- - OS: [e.g. iOS]
+ - OS: [e.g. Linux, MacOS, Windows]
  - Browser [e.g. chrome, safari]
  - Version of the listed dependencies [e.g. `rebar3` 3.24.0, `nodejs`, v23.8.0]
 
