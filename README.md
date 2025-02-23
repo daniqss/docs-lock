@@ -1,3 +1,6 @@
+![](https://img.shields.io/github/actions/workflow/status/daniqss/docs-lock/ci.yml)
+![](https://img.shields.io/github/last-commit/daniqss/docs-lock)
+
 # docs.lock
 Welcome to docs.lock, the internal platform where developers share knowledge, resolve queries and collaborate in real time.
 ![docs.lock](./assets/image.png)
