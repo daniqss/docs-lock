@@ -1,10 +1,10 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect, useCallback } from "react";
 import { SessionContext, SessionContextType } from "../context/Session";
 import { useNavigate } from "react-router-dom";
 import { useGetUsers } from "../api/hooks/users.hooks";
 import BoardingBox from "../components/Boarding";
 import Footer from "../components/Footer";
-import AppIcon from "../components/icons/AppIcon"; // Importamos el icono
+import AppIcon from "../components/icons/AppIcon";
 
 function Login() {
   const { setUser } = useContext(SessionContext) as SessionContextType;
@@ -12,50 +12,55 @@ function Login() {
   const [name, setName] = useState("");
   const [github, setGithub] = useState("");
   const [error, setError] = useState("");
-  const {
-    data: users,
-    error: userError,
-    isLoading: isUserLoading,
-  } = useGetUsers();
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (name === "" || github === "") {
-      setError("Todos los campos son obligatorios");
-      return;
+  const { data: users, error: userError, isLoading } = useGetUsers();
+
+  useEffect(() => {
+    if (userError) {
+      setError("Error fetching users");
     }
-    setError("");
+  }, [userError]);
 
-    while (true) {
-      if (isUserLoading) continue;
+  const handleSubmit = useCallback(
+    (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
 
-      if (!users || userError) {
-        setError("Error fetching users");
+      if (!name || !github) {
+        setError("Todos los campos son obligatorios");
+        return;
+      }
+
+      if (isLoading) {
+        setError("Cargando usuarios, intenta nuevamente...");
+        return;
+      }
+
+      if (!users) {
+        setError("No se pudieron obtener los usuarios");
         return;
       }
 
       const user = users.find((u) => u.gitUsername === github);
+
       if (!user) {
-        setError("User not found");
+        setError("Usuario no encontrado");
         return;
       }
 
-      if (!sessionStorage.getItem("user"))
-        sessionStorage.setItem("user", JSON.stringify(user));
+      sessionStorage.setItem("user", JSON.stringify(user));
       setUser(user);
-      break;
-    }
 
-    navigate("/home");
-  };
+      navigate("/home");
+    },
+    [name, github, users, isLoading, setUser, navigate]
+  );
 
   return (
     <>
       {/* Contenedor del Título */}
       <div className="relative w-full flex justify-center">
         <h1 className="absolute top-[50%] mt-5 text-[6vw] md:text-[5vw] font-bold text-gray-900 flex items-center gap-3 z-50">
-          <AppIcon className="w-[10vw] h-[10vw] max-w-[80px] max-h-[80px]" />{" "}
-          docs.lock
+          <AppIcon className="w-[10vw] h-[10vw] max-w-[80px] max-h-[80px]" /> docs.lock
         </h1>
       </div>
 
@@ -74,10 +79,7 @@ function Login() {
             </h2>
             <form onSubmit={handleSubmit}>
               <div className="mb-4">
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-semibold text-gray-700"
-                >
+                <label htmlFor="name" className="block text-sm font-semibold text-gray-700">
                   Name
                 </label>
                 <input
@@ -89,10 +91,7 @@ function Login() {
                 />
               </div>
               <div className="mb-4">
-                <label
-                  htmlFor="username"
-                  className="block text-sm font-semibold text-gray-700"
-                >
+                <label htmlFor="username" className="block text-sm font-semibold text-gray-700">
                   Github Username
                 </label>
                 <input
@@ -103,12 +102,13 @@ function Login() {
                   className="w-full p-3 mt-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-input text-black"
                 />
               </div>
-              {error && <div className="text-red-500 text-sm ">{error}</div>}
+              {error && <div className="text-red-500 text-sm">{error}</div>}
               <button
                 type="submit"
                 className="w-full bg-blue-500 text-white py-3 mt-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-button"
+                disabled={isLoading}
               >
-                Login
+                {isLoading ? "Cargando..." : "Login"}
               </button>
             </form>
           </section>

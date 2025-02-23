@@ -1,15 +1,12 @@
-import { Note, Section } from "../api/__generated__";
-import { UseQueryResult } from "@tanstack/react-query";
+import { Note } from "../api/__generated__";
 
 type SectionNotesProps = {
   selectedSection: Section;
-  getNotes: UseQueryResult<Note[], Error>;
   notes: Note[];
+  getUserNameAndGitHub: (userId: string) => { realName: string; gitUsername: string };
 };
 
-function SectionNotes({ selectedSection, getNotes, notes }: SectionNotesProps) {
-  const { isLoading: notesIsLoading, error: notesError } = getNotes;
-
+function SectionNotes({ selectedSection, notes, getUserNameAndGitHub }: SectionNotesProps) {
   return (
     <>
       <h2 className="text-lg font-bold mb-4 text-black">
@@ -18,8 +15,8 @@ function SectionNotes({ selectedSection, getNotes, notes }: SectionNotesProps) {
           : "Selecciona una sección"}
       </h2>
       <div className="space-y-2 mx-20">
-        {!notesIsLoading && !notesError ? (
-          <NotesList notes={notes} />
+        {notes.length > 0 ? (
+          <NotesList notes={notes} getUserNameAndGitHub={getUserNameAndGitHub} /> 
         ) : (
           <p className="text-gray-500">
             Haz clic en una sección para ver sus notas.
@@ -30,13 +27,19 @@ function SectionNotes({ selectedSection, getNotes, notes }: SectionNotesProps) {
   );
 }
 
-function NotesList({ notes }: { notes: Note[] }) {
-  return notes.map((note, index) => (
-    <article key={index} className="p-3 bg-primary rounded text-black h-fit">
-      <h3 className="text-md font-semibold">{note.userId}</h3>
-      <p>{note.content}</p>
-    </article>
-  ));
+function NotesList({ notes, getUserNameAndGitHub }: { notes: Note[]; getUserNameAndGitHub: (userId: string) => { realName: string; gitUsername: string } }) {
+  return notes.map((note, index) => {
+    const { realName, gitUsername } = getUserNameAndGitHub(note.userId);
+
+    return (
+      <article key={index} className="p-3 bg-primary rounded text-black h-fit">
+        <p className="text-sm text-gray-600">
+          {realName} (@{gitUsername})
+        </p>
+        <p>{note.content}</p>
+      </article>
+    );
+  });
 }
 
 export default SectionNotes;
