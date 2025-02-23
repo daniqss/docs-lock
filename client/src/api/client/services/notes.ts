@@ -11,7 +11,8 @@ export const deleteNote = (noteId: string) => {
 export const getNote = (noteId: string) =>
   client.get<Note>(`/notes/${noteId}`).then((response) => response.data);
 
-export const getNotes = async (): Promise<Note[]> => {
-  const response = await client.get<Note[]>("/notes");
+export const getNotes = async (sectionId?: string): Promise<Note[]> => {
+  const url = sectionId ? `/notes?sectionId=${sectionId}` : "/notes";
+  const response = await client.get<Note[]>(url);
   return response.data;
 };

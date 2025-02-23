@@ -8,6 +8,7 @@ import SkillPage from "./pages/SkillPage.tsx";
 import LoginPage from "./pages/LoginPage.tsx";
 import { QueryClientProvider } from "@tanstack/react-query";
 import queryClient from "./api/QueryClient.ts";
+import CreateSkillPage from "./pages/CreateSkillPage.tsx";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
   {
     path: "/skills/:skill",
     element: <SkillPage />,
+  },
+  {
+    path: "/create-skill",
+    element: <CreateSkillPage />,
   },
 ]);
 

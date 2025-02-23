@@ -7,10 +7,10 @@ import {
 } from "../client/services/notes";
 import { CreateNoteRequest, Note } from "../__generated__/types.gen";
 
-export const useGetNotes = () => {
+export const useGetNotes = (sectionId?: string) => {
   return useQuery<Note[], Error>({
-    queryKey: ["notes"],
-    queryFn: getNotes,
+    queryKey: ["notes", sectionId],
+    queryFn: () => getNotes(sectionId),
   });
 };
 

@@ -789,20 +789,8 @@
                     "sectionName": {
                         "type": "string"
                     },
-                    "skill": {
-                        "type": "object",
-                        "properties": {
-                            "id": {
-                                "type": "integer"
-                            },
-                            "name": {
-                                "type": "string"
-                            }
-                        },
-                        "required": [
-                            "id",
-                            "name"
-                        ]
+                    "skillId": {
+                        "type": "string"
                     },
                     "participants": {
                         "type": "array",
@@ -810,18 +798,13 @@
                             "$ref": "#/components/schemas/UserId"
                         }
                     }
-                },
-                "required": [
-                    "seccionName",
-                    "skill",
-                    "participants"
-                ]
+                }
             },
             "Section": {
                 "type": "object",
                 "properties": {
                     "id": {
-                        "type": "integer"
+                        "type": "string"
                     },
                     "seccionName": {
                         "type": "string"
