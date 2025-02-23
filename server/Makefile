@@ -33,7 +33,7 @@ test:
 .PHONY: mongo_up mongo_down
 
 mongo_up:
-	docker-compose up -d 
+	docker-compose up -d --build --force-recreate 
 
 mongo_down:
 	docker-compose stop mongo
