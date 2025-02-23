@@ -49,13 +49,13 @@ function SkillPage() {
           <section className="w-2/3 bg-secondary p-4 rounded-lg items-center flex-col min-h-100">
 
           {/* right column */}
-          <section className="items-center min-h-80 overflow-y-auto">
+          <section className="items-center min-h-70 overflow-y-auto">
             {isSectionLoading && !sectionError && selectedSection !== null && (
               <SectionNotes selectedSection={selectedSection} />
             )}
           </section>
            {/* Input and Send Button */}
-           <div className="flex items-center gap-2 p-3 mt-4">
+           <div className="flex items-center gap-2 p-3 mt-6">
   <input
     type="text"
     value={text}
