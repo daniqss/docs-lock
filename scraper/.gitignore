@@ -1,5 +1,7 @@
 *
 !*.py
+!using_github_api
+!using_github_api/**/*
 !requirements.txt
 !Makefile
 !install.sh
