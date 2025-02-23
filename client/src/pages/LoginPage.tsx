@@ -33,6 +33,8 @@ function Login() {
         setError("Error fetching users");
         return;
       }
+
+      console.log(users);
       const user = users.find((u) => u.gitUsername === github);
       if (!user) {
         setError("User not found");

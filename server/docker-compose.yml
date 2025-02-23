@@ -4,3 +4,6 @@ services:
     container_name: server_mongo
     ports:
       - "27017:27017"
+    volumes:
+      - ./test/docker/mongo/:/docker-entrypoint-initdb.d/
+      
