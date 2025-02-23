@@ -1,6 +1,6 @@
 # DOCS.LOCK
 
-# Dependencies
+## Dependencies
 erlang
 rebar3
 docker and docker-compose
@@ -8,8 +8,8 @@ make
 nodejs
 python
 
-# How to run
-## frontend
+## How to run
+### frontend
 ```bash
 cd client
 npm install
@@ -19,19 +19,19 @@ npm run dev
 npm run types
 ```
 
-## server
+### server
 ```bash
 cd server
 rebar3 shell
 ```
 
-## database
+### database
 ```bash
 cd server
 docker-compose up -d
 ```
 
-### Features  
+## Features  
 
 - A web-based multi-user platform designed for developers.  
 - Allows users to search for information and ask questions about various skills, programming languages, and competencies.  
@@ -41,7 +41,7 @@ docker-compose up -d
 - Automatically enriches the database by dynamically adding new skills and competencies.  
 - Uses a Python script to analyze GitHub repositories of newly registered users, detecting libraries and programming languages to expand the skillset database.  
 
-### Usage  
+## Usage  
 
 To use the platform, simply access the web application through your browser. Register or log in to start searching for information, asking questions, and interacting with the community. If enabled, newly registered users with linked GitHub accounts will contribute to the platform’s knowledge base through automated repository analysis.
 
