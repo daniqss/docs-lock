@@ -96,10 +96,10 @@ function Login() {
                   className="w-full p-3 mt-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-input text-black"
                 />
               </div>
-              {error && <div className="text-red-500 text-sm mb-4">{error}</div>}
+              {error && <div className="text-red-500 text-sm ">{error}</div>}
               <button
                 type="submit"
-                className="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-button"
+                className="w-full bg-blue-500 text-white py-3 mt-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-button"
               >
                 Login
               </button>
