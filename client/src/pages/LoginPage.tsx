@@ -62,7 +62,7 @@ function Login() {
         <div className="flex flex-wrap justify-center gap-8 w-full max-w-[90vw]">
           
           {/* Sección de BoardingBox */}
-          <section className="bg-primary p-8 rounded-lg shadow-lg w-[45%] min-w-[280px] max-w-[500px] mt-[5vh] mx-4">
+          <section className="bg-primary p-8 rounded-lg shadow-lg w-[50%] min-w-[280px] max-w-[500px] mt-[5vh] mx-4">
             <BoardingBox />
           </section>
           
