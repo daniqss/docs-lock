@@ -9,7 +9,7 @@ nodejs
 python
 
 ## How to run
-### frontend
+### Frontend
 ```bash
 cd client
 npm install
@@ -19,10 +19,29 @@ npm run dev
 npm run types
 ```
 
-### server
+### Backend
+- Compile the server project
+```bash
+make OBJ=server TARGET=compile
+```
+
+- Up/Down mongo container
 ```bash
 cd server
-rebar3 shell
+make mongo_up
+make mongo_down
+```
+
+- Init server and open shell
+```bash
+make OBJ=server TARGET=shell or 
+cd server && make shell
+```
+
+- Checks and run tests
+```bash
+make OBJ=server TARGET=check
+make OBJ=server TARGET=test
 ```
 
 ### database
