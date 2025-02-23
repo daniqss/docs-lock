@@ -30,7 +30,7 @@ To use the platform, simply access the web application through your browser. Reg
 
 ## [License](./LICENSE)
 
-## [Contributors](./CONTRIBUTORS.md)
+## [Contributing](./CONTRIBUTING.md)
 
 ## [Security](./SECURITY.md)
 
