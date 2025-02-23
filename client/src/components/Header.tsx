@@ -28,7 +28,7 @@ function Header() {
     <header className="px-22 flex flex-row justify-between items-center w-full h-22 fixed top-0 left-0 border-b shadow-md bg-white ">
       {/* Logo y título */}
       <section className="flex flex-row space-x-2 items-center">
-        <Link to="/">
+        <Link to="/home">
           <h1 className="text-2xl lg:text-4xl font-bold text-gray-900 custom-font">
             docs.lock
           </h1>

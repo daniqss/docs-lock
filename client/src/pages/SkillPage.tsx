@@ -5,21 +5,22 @@ import SectionNotes from "../components/NotesList";
 import { useParams } from "react-router";
 import "./HomePage.css";
 import Footer from "../components/Footer";
-import { Section } from "../api/__generated__";
+import { Note, Section } from "../api/__generated__";
 import { useGetSections } from "../api/hooks/sections.hooks";
-import PaperIcon from "../components/icons/PaperIcon";
 import { SessionContext, SessionContextType } from "../context/Session";
+import { useGetNotes } from "../api/hooks/notes.hooks";
+import PaperIcon from "../components/icons/PaperIcon";
 
 function SkillPage() {
   const [selectedSection, setSelectedSection] = useState<Section | null>(null);
   const { skill } = useParams<{ skill: string }>();
-  const [text, setText] = useState("");
   const { selectedSkill } = useContext(SessionContext) as SessionContextType;
+  const [text, setText] = useState("");
+  const { user } = useContext(SessionContext) as SessionContextType;
+  const getNotes = useGetNotes();
 
-  const handleSend = async () => {
-    if (!text.trim()) return;
-    setText("");
-  };
+  const [notes, setNotes] = useState(getNotes.data);
+  console.log(notes);
 
   const {
     data: sections = [],
@@ -30,6 +31,20 @@ function SkillPage() {
   const wantedSections = sections.filter(
     (section) => section.skillId === selectedSkill._id
   );
+
+  const handleSend = async () => {
+    if (!text.trim()) return;
+
+    const newNote: Note = {
+      content: text,
+      sectionId: selectedSection?._id?.toString(),
+      userId: user._id?.toString(),
+    };
+    setNotes((previous) =>
+      previous !== undefined ? [...previous, newNote] : previous
+    );
+    setText("");
+  };
 
   return (
     <>
@@ -52,10 +67,14 @@ function SkillPage() {
           <section className="w-2/3 bg-secondary p-4 rounded-lg items-center flex-col min-h-100">
             {/* right column */}
             <section className="items-center min-h-70 overflow-y-auto">
-              {isSectionLoading &&
+              {!isSectionLoading &&
                 !sectionError &&
                 selectedSection !== null && (
-                  <SectionNotes selectedSection={selectedSection} />
+                  <SectionNotes
+                    selectedSection={selectedSection}
+                    getNotes={getNotes}
+                    notes={notes ?? []}
+                  />
                 )}
             </section>
             {/* Input and Send Button */}
