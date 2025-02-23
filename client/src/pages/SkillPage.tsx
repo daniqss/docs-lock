@@ -139,7 +139,7 @@ function SkillPage() {
                 value={newSectionName}
                 onChange={(e) => setNewSectionName(e.target.value)}
                 placeholder="Nombre de la nueva sección"
-                className="w-full p-2 border text-black bg-input border-gray-500 rounded-md outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-2 h-11 border text-black bg-gray-100 border-gray-500 rounded-md outline-none focus:ring-2 focus:ring-blue-500"
               />
               <button
                 onClick={handleCreateSection}
@@ -172,7 +172,7 @@ function SkillPage() {
                 value={text}
                 onChange={(e) => setText(e.target.value)}
                 placeholder="Escribe algo..."
-                className="flex-1 h-11 p-2 border text-black bg-input border-gray-500 rounded-md outline-none focus:ring-2 focus:ring-blue-500"
+                className="flex-1 h-11 p-2 border text-black bg-gray-100 border-gray-500 rounded-md outline-none focus:ring-2 focus:ring-blue-500"
               />
               <button
                 onClick={handleSend}
