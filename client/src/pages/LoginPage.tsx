@@ -50,31 +50,34 @@ function Login() {
 
   return (
     <>
-      <div className="relative w-full flex justify-center mt-16">
-        <h1 className="absolute top-16 text-8xl font-bold text-gray-900 flex items-center gap-3 z-50">
-          <AppIcon className="w-35 h-35" /> docs.lock
+      {/* Contenedor del Título */}
+      <div className="relative w-full flex justify-center">
+        <h1 className="absolute top-[50%] mt-5 text-[6vw] md:text-[5vw] font-bold text-gray-900 flex items-center gap-3 z-50">
+          <AppIcon className="w-[10vw] h-[10vw] max-w-[80px] max-h-[80px]" /> docs.lock
         </h1>
       </div>
-
-      <div className="items-center justify-center rounded-lg min-h-screen bg-secondary flex p-4">
-        <div className="flex h-full gap-8">
-          <section className="bg-primary p-8 rounded-lg shadow-lg w-150 mx-6">
+  
+      {/* Contenedor Principal */}
+      <div className="flex items-center rounded justify-center min-h-screen bg-secondary p-4">
+        <div className="flex flex-wrap justify-center gap-8 w-full max-w-[90vw]">
+          
+          {/* Sección de BoardingBox */}
+          <section className="bg-primary p-8 rounded-lg shadow-lg w-[45%] min-w-[280px] max-w-[500px] mt-[5vh] mx-4">
             <BoardingBox />
           </section>
-          <section className="bg-primary p-8 rounded-lg shadow-lg w-80 mx-6">
-            <h2 className="text-2xl text-black font-bold text-center mb-6">
+          
+          {/* Sección de Login */}
+          <section className="bg-primary p-8 rounded-lg shadow-lg w-[40%] min-w-[250px] max-w-[400px] mt-[5vh] mx-4">
+            <h2 className="text-[1.8vw] md:text-[1.5vw] lg:text-2xl text-black font-bold text-center mb-6">
               Login
             </h2>
             <form onSubmit={handleSubmit}>
               <div className="mb-4">
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-semibold text-gray-700"
-                >
+                <label htmlFor="name" className="block text-sm font-semibold text-gray-700">
                   Name
                 </label>
                 <input
-                  type="name"
+                  type="text"
                   id="name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
@@ -82,23 +85,18 @@ function Login() {
                 />
               </div>
               <div className="mb-4">
-                <label
-                  htmlFor="username"
-                  className="block text-sm font-semibold text-gray-700"
-                >
+                <label htmlFor="username" className="block text-sm font-semibold text-gray-700">
                   Github Username
                 </label>
                 <input
-                  type="username"
+                  type="text"
                   id="username"
                   value={github}
                   onChange={(e) => setGithub(e.target.value)}
                   className="w-full p-3 mt-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-input text-black"
                 />
               </div>
-              {error && (
-                <div className="text-red-500 text-sm mb-4">{error}</div>
-              )}
+              {error && <div className="text-red-500 text-sm mb-4">{error}</div>}
               <button
                 type="submit"
                 className="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-button"
@@ -107,11 +105,14 @@ function Login() {
               </button>
             </form>
           </section>
+  
         </div>
       </div>
+  
       <Footer />
     </>
   );
+  
 }
 
 export default Login;
