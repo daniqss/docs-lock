@@ -28,11 +28,11 @@ Welcome to docs.lock, the internal platform where developers share knowledge, re
 
 To use the platform, simply access the web application through your browser. Register or log in to start searching for information, asking questions, and interacting with the community. If enabled, newly registered users with linked GitHub accounts will contribute to the platform’s knowledge base through automated repository analysis.
 
-## [License](./LICENSE)
+## ![License](./LICENSE)
 
-## [Contributors](./CONTRIBUTORS.md)
+## ![Contributors](./CONTRIBUTORS.md)
 
-## [Security](./SECURITY.md)
+## ![Security](./SECURITY.md)
 
 ## How to run
 ### Frontend
