@@ -1,35 +1,15 @@
-# DOCS.LOCK
+# docs.lock
+Welcome to docs.lock, the internal platform where developers share knowledge, resolve queries and collaborate in real time.
+![docs.lock](./assets/image.png)
 
 ## Dependencies
-erlang
-rebar3
-docker and docker-compose
-make
-nodejs
-python
-
-## How to run
-### frontend
-```bash
-cd client
-npm install
-npm run dev
-
-# generate frontend types
-npm run types
-```
-
-### server
-```bash
-cd server
-rebar3 shell
-```
-
-### database
-```bash
-cd server
-docker-compose up -d
-```
+- `erlang`
+- `rebar3`
+- `docker`
+- `docker-compose`
+- `make`
+- `nodejs`
+- `python`
 
 ## Features  
 
@@ -46,3 +26,46 @@ docker-compose up -d
 To use the platform, simply access the web application through your browser. Register or log in to start searching for information, asking questions, and interacting with the community. If enabled, newly registered users with linked GitHub accounts will contribute to the platform’s knowledge base through automated repository analysis.
 
 ## License
+![](./LICENSE)
+
+## Contributors
+![](./CONTRIBUTORS.md)
+
+## Security
+![](./SECURITY.md)
+
+## How to run
+### Frontend
+```bash
+cd client
+npm install
+npm run dev
+
+# generate frontend types
+npm run types
+```
+
+### Backend
+- Compile the server project
+```bash
+make OBJ=server TARGET=compile
+```
+
+- Up/Down mongodb container
+```bash
+cd server
+make mongo_up
+make mongo_down
+```
+
+- Init server and open shell
+```bash
+make OBJ=server TARGET=shell or 
+cd server && make shell
+```
+
+- Checks and run tests
+```bash
+make OBJ=server TARGET=check
+make OBJ=server TARGET=test
+```
