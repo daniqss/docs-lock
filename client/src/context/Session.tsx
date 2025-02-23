@@ -12,7 +12,7 @@ function SessionProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User>({
     id: 0,
     gitUsername: "",
-    Realname: "",
+    realName: "",
   });
 
   return (

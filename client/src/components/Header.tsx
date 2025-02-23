@@ -8,7 +8,7 @@ function Header() {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
   const { user } = useContext(SessionContext) as SessionContextType;
-
+  console.log(user);
   // Cerrar el dropdown si se hace clic fuera
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -50,7 +50,7 @@ function Header() {
             className="absolute right-0 top-12 shadow-lg rounded-md p-3 w-56 border bg-white"
           >
             <p className="font-semibold text-gray-900 text-left">
-              {"name: "} {user.Realname}
+              {"name: "} {user.realName}
             </p>
             <p className="text-sm text-gray-700 text-left">
               {"github: "} {user.gitUsername}

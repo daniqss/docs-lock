@@ -10,7 +10,7 @@ export type CreateUserRequest = {
 export type User = {
   id?: number;
   gitUsername?: string;
-  Realname?: string;
+  realName?: string;
 };
 
 /**
