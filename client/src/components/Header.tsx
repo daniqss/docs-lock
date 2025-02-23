@@ -8,7 +8,7 @@ function Header() {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
   const { user } = useContext(SessionContext) as SessionContextType;
-  console.log(user);
+
   // Cerrar el dropdown si se hace clic fuera
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {

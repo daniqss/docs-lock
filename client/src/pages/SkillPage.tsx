@@ -18,7 +18,6 @@ function SkillPage() {
 
   const handleSend = async () => {
     if (!text.trim()) return;
-    console.log("Enviando a la base de datos:", text);
     setText("");
   };
 
@@ -28,13 +27,9 @@ function SkillPage() {
     isLoading: isSectionLoading,
   } = useGetSections();
 
-  const wantedSections = sections.filter((section) => {
-    console.log(selectedSkill);
-    // console.log(section.skillId, " == ", selectedSkill.id);
-    return section.skillId === selectedSkill._id;
-  });
-
-  console.log(sections);
+  const wantedSections = sections.filter(
+    (section) => section.skillId === selectedSkill._id
+  );
 
   return (
     <>
